@@ -10,34 +10,88 @@
 <title>Fitnation Gym Patna | Forge Your Strongest Self</title>
 <meta name="description" content="Fitnation Gym Patna — Patna's most advanced fitness floor. Premium equipment, certified trainers, flexible batches. Book your free trial today." />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- ═══════════════════════════════════════════════════════════
+     FIX #1 — CRITICAL INLINE CSS (runs before any external asset)
+     Ensures no FOUC on hard refresh (Ctrl+Shift+R).
+════════════════════════════════════════════════════════════ -->
+<style>
+  html {
+    background: #121212;
+    color-scheme: dark;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: #e5e5e5;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  body {
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity .15s ease-out;
+    overflow-x: hidden;
+  }
+  body.app-ready { opacity: 1; }
+  body:not(.app-ready) { overflow: hidden; }
 
+  body, button, input, select, textarea {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SYNCHRONOUS DEPENDENCIES — all loaded in <head>, no defer/async
+     on Tailwind so that utility classes are ready before first paint.
+════════════════════════════════════════════════════════════ -->
+
+<!-- Tailwind CSS — MUST be synchronous -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:   '#121212',
+          ink2:  '#181818',
+          ink3:  '#0a0a0a',
+          brand: '#dc2626',
+          gold:  '#f59e0b'
+        },
+        fontFamily: {
+          display: ['Oswald', 'system-ui', 'sans-serif'],
+          body:    ['Inter',  'system-ui', 'sans-serif']
+        }
+      }
+    }
+  };
+</script>
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<script>
-  tailwind.config = {
-    theme: { extend: {
-      colors: { ink: '#121212', ink2: '#181818', ink3: '#0a0a0a', brand: '#dc2626', gold: '#f59e0b' },
-      fontFamily: { display: ['Oswald', 'system-ui', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] }
-    } }
-  };
-</script>
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     GLOBAL CONFIG
+════════════════════════════════════════════════════════════ -->
 <script>
   window.SUPABASE_URL      = 'https://ytgtomaeouskudwuscxe.supabase.co';
   window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0Z3RvbWFlb3Vza3Vkd3VzY3hlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzU1NzcsImV4cCI6MjEwNzMxMTU3N30.e69DDYDb-X2HdgYCYO8twUs6gXY30N-KVDfSv8phG04';
-  window.WHATSAPP_NUMBER  = '919000000000';
-  window.WHATSAPP_MESSAGE = "Hi Fitnation Gym! I'd like to know more about membership plans.";
+  window.WHATSAPP_NUMBER   = '919000000000';
+  window.WHATSAPP_MESSAGE  = "Hi Fitnation Gym! I'd like to know more about membership plans.";
 </script>
 
 <style>
   :root { --safe-b: env(safe-area-inset-bottom, 0px); --safe-r: env(safe-area-inset-right, 0px); --safe-l: env(safe-area-inset-left, 0px); }
   html, body { overflow-x: hidden; overflow-y: auto; }
-  body { font-family: 'Inter', sans-serif; background: #121212; }
   .font-display { font-family: 'Oswald', sans-serif; letter-spacing: .015em; }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
@@ -104,11 +158,17 @@
   body.social-edit .social-btn::after { content: ''; position: absolute; inset: 0; border-radius: 12px;
                                          border: 1px dashed rgba(245,158,11,.45); pointer-events: none; }
 
-  .admin-dot { display: inline-block; background: transparent; border: none; padding: 12px 16px; margin: -12px -16px;
-               font: inherit; line-height: 1; color: inherit; opacity: .15; cursor: pointer; outline: none;
-               transition: opacity .3s ease, color .3s ease, text-shadow .3s ease;
-               user-select: none; -webkit-tap-highlight-color: transparent; }
-  .admin-dot:hover, .admin-dot:focus-visible { opacity: 1; color: #f59e0b; text-shadow: 0 0 14px rgba(245,158,11,.85); }
+  /* ═══════════════ FIX #2 — Footer double-click trigger styling ═══════════════ */
+  #copyrightTrigger {
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .25s ease;
+    display: inline-block;
+  }
+  #copyrightTrigger:hover { color: #a3a3a3; }
+
   #adminWrap { position: fixed; bottom: max(1.25rem, calc(var(--safe-b) + .5rem)); right: max(1.25rem, calc(var(--safe-r) + .5rem));
                z-index: 100; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
   #adminWrap.admin-hidden { display: none !important; }
@@ -512,7 +572,10 @@
         </div>
       </div>
       <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-        <p class="text-xs text-neutral-500">© 2025 Fitnation Gym Patna. All rights reserved.<button id="adminDotBtn" class="admin-dot" aria-label="Admin access" type="button">.</button></p>
+        <!-- FIX #2: double-click this text (or press Ctrl+Shift+A) to open admin login -->
+        <p class="text-xs text-neutral-500">
+          <span id="copyrightTrigger" title="">© 2026 Fitnation Gym Patna. All rights reserved.</span>
+        </p>
         <p class="text-xs text-neutral-500">Built for people who refuse average.</p>
       </div>
     </div>
@@ -601,6 +664,7 @@
         <button data-close-login class="absolute top-5 right-5 btn btn-icon"><i data-lucide="x" class="w-4 h-4"></i></button>
         <span class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-gold grid place-items-center"><i data-lucide="lock" class="w-6 h-6 text-white"></i></span>
         <h3 class="font-display text-2xl font-bold text-white mt-4">Admin login</h3>
+        <p class="text-sm text-neutral-400 mt-1.5">Double-click the footer copyright · or press Ctrl+Shift+A</p>
       </div>
       <form id="loginForm" class="px-7 pb-7 space-y-4" novalidate onsubmit="event.preventDefault(); return false;">
         <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Email</label><input id="loginEmail" type="email" required placeholder="admin@example.com" class="field" autocomplete="username" /></div>
@@ -735,7 +799,7 @@
   'use strict';
 
   const CONFIG = {
-    storage: { edits: 'fng_edits_v7', sections: 'fng_sections_v7', images: 'fng_images_v7', social: 'fng_social_v7' },
+    storage: { edits: 'fng_edits_v9', sections: 'fng_sections_v9', images: 'fng_images_v9', social: 'fng_social_v9' },
     limits: { maxImageBytes: 5 * 1024 * 1024, maxTextLen: 8000, maxUrlLen: 500, loginAttempts: 5, loginLockMs: 60 * 1000 },
     allowedImageTypes: new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']),
     sections: [
@@ -770,10 +834,7 @@
   const state = {
     editMode: false, socialEditMode: false, activeSocialSlot: null, adminUser: null,
     editableEls: [], scrollLocks: new Set(), loginAttempts: 0, loginLockedUntil: 0,
-    bookings: [], bookingsLoaded: false,
-    sectionsFromCloud: false,
-    socialFromCloud: false,
-    cloudCache: { edits: {}, images: {}, sections: {}, social: null }
+    bookings: [], bookingsLoaded: false
   };
 
   const $  = (sel, root = document) => root.querySelector(sel);
@@ -783,7 +844,6 @@
   const setLoading = (btn, on) => { if (btn) { btn.classList.toggle('btn-loading', !!on); btn.disabled = !!on; } };
   const escHtml = (s) => String(s ?? '').replace(/[&<>"']/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]));
 
-  /* ═══ TOAST ═══ */
   const toast = (() => {
     let timer = null;
     const base = 'fixed bottom-28 left-1/2 z-[140] px-5 py-3 rounded-xl text-sm font-semibold shadow-2xl pointer-events-none transition-all duration-300 max-w-[90vw] text-center ';
@@ -798,7 +858,6 @@
     };
   })();
 
-  /* ═══ SCROLL LOCK ═══ */
   const overlayIds = ['#trialModal', '#socialModal', '#loginModal', '#mobileMenu', '#sectionDrawer', '#bookingsModal'];
   const anyOverlayOpen = () => overlayIds.some(id => { const el = $(id); return el && !el.classList.contains('hidden'); });
   const lockScroll = (reason) => { state.scrollLocks.add(reason || 'generic'); document.body.classList.add('no-scroll'); };
@@ -809,7 +868,6 @@
   const forceReleaseScroll = () => { state.scrollLocks.clear(); document.body.classList.remove('no-scroll'); };
   setInterval(() => { if (!anyOverlayOpen() && document.body.classList.contains('no-scroll')) forceReleaseScroll(); }, 400);
 
-  /* ═══ VALIDATORS + SANITIZER ═══ */
   const safeURL = (url) => {
     if (!url || typeof url !== 'string') return false;
     const u = url.trim();
@@ -873,7 +931,6 @@
     remove(key) { try { localStorage.removeItem(key); } catch {} }
   };
 
-  /* ═══ SUPABASE ═══ */
   const supa = (() => {
     let client = null;
     function init() {
@@ -891,25 +948,15 @@
     return { init, get client() { return client; } };
   })();
 
-  /* ═══════════════════════════════════════════════════════════
-     CONTENT SYNC — handles text, images, sections, social
-     Key patterns:
-       edit:k0          → text edit (type='text')
-       img:hero-bg      → image replacement (type='image')
-       section:hero     → section visibility 'true'/'false' (type='section')
-       social:main      → JSON array of social links (type='social')
-  ═══════════════════════════════════════════════════════════ */
   const contentSync = (() => {
     let channel = null;
     let applyingRemote = false;
-
     function setStatus(state_, text) {
       const dot = $('#syncDot'), txt = $('#syncText');
       if (!dot || !txt) return;
       dot.className = 'sync-dot ' + (state_ === 'syncing' ? 'syncing' : state_ === 'error' ? 'error' : '');
       txt.textContent = text;
     }
-
     async function fetchAll() {
       const client = supa.client;
       if (!client) throw new Error('Supabase not initialised');
@@ -917,7 +964,6 @@
       if (error) throw error;
       return data || [];
     }
-
     async function upsert(rows) {
       const client = supa.client;
       if (!client) throw new Error('Supabase not initialised');
@@ -931,164 +977,97 @@
       const { error } = await client.from('site_content').upsert(payload, { onConflict: 'key' });
       if (error) throw error;
     }
-
-    /* Apply a single row from cloud */
     function applyRow(row) {
       if (!row || !row.key) return;
       applyingRemote = true;
       try {
         if (row.type === 'image') {
-          const img = document.querySelector(`img[data-img-key="${row.key.replace(/^img:/,'')}"]`);
-          if (img && row.content && img.src !== row.content) {
-            img.src = row.content; img.dataset.replaced = '1';
-            state.cloudCache.images[row.key] = row.content;
-          }
+          const img = document.querySelector('img[data-img-key="' + row.key.replace(/^img:/,'') + '"]');
+          if (img && row.content && img.src !== row.content) { img.src = row.content; img.dataset.replaced = '1'; }
         } else if (row.type === 'text') {
-          const el = document.querySelector(`[data-edit-key="${row.key.replace(/^edit:/,'')}"]`);
+          const el = document.querySelector('[data-edit-key="' + row.key.replace(/^edit:/,'') + '"]');
           if (el) { const clean = sanitize(row.content || ''); if (el.innerHTML !== clean) el.innerHTML = clean; }
-          state.cloudCache.edits[row.key] = row.content;
         } else if (row.type === 'section') {
           const id = row.key.replace(/^section:/,'');
           const el = document.getElementById(id);
           const visible = row.content === 'true';
           if (el) el.style.display = visible ? '' : 'none';
-          state.cloudCache.sections[id] = visible;
         } else if (row.type === 'social') {
           try {
             const arr = JSON.parse(row.content || '[]');
-            if (Array.isArray(arr)) {
-              state.cloudCache.social = arr;
-              store.set(CONFIG.storage.social, arr);
-              social.render();
-            }
-          } catch (e) { console.warn('[sync] social parse failed'); }
+            if (Array.isArray(arr)) { store.set(CONFIG.storage.social, arr); social.render(); }
+          } catch (e) {}
         }
-      } finally {
-        applyingRemote = false;
-      }
+      } finally { applyingRemote = false; }
     }
-
     function applyAll(rows) {
       if (!Array.isArray(rows)) return;
       applyingRemote = true;
       try {
-        // Sort so social and sections applied after images/text
         const order = { image: 0, text: 1, section: 2, social: 3 };
-        const sorted = [...rows].sort((a, b) => (order[a.type] ?? 99) - (order[b.type] ?? 99));
-        sorted.forEach(applyRow);
+        [...rows].sort((a, b) => (order[a.type] ?? 99) - (order[b.type] ?? 99)).forEach(applyRow);
         if (window.lucide) lucide.createIcons();
       } finally { applyingRemote = false; }
     }
-
     async function loadFromCloud() {
       try {
         setStatus('syncing', 'Loading cloud content…');
         const rows = await fetchAll();
         applyAll(rows);
-        setStatus('idle', `Cloud loaded (${rows.length} items)`);
-        console.log('[sync] loaded', rows.length, 'rows');
+        setStatus('idle', 'Cloud loaded (' + rows.length + ' items)');
       } catch (e) {
         console.warn('[sync] cloud load failed:', e);
         setStatus('error', 'Offline — using cache');
       }
     }
-
-    /* Push specific type of data */
     async function push(rows) {
       if (!rows || !rows.length) return;
-      setStatus('syncing', `Pushing ${rows.length} items…`);
-      try {
-        await upsert(rows);
-        setStatus('idle', `Synced ${rows.length} items`);
-      } catch (e) {
-        setStatus('error', 'Sync failed');
-        throw e;
-      }
+      setStatus('syncing', 'Pushing ' + rows.length + ' items…');
+      try { await upsert(rows); setStatus('idle', 'Synced ' + rows.length + ' items'); }
+      catch (e) { setStatus('error', 'Sync failed'); throw e; }
     }
-
-    /* Push everything (called by Save & Sync button) */
     async function pushAll() {
       const rows = [];
-      // Text edits
-      state.editableEls.forEach(el => {
-        rows.push({ key: 'edit:' + el.dataset.editKey, content: sanitize(el.innerHTML), type: 'text' });
-      });
-      // Images
+      state.editableEls.forEach(el => { rows.push({ key: 'edit:' + el.dataset.editKey, content: sanitize(el.innerHTML), type: 'text' }); });
       document.querySelectorAll('img[data-img-key]').forEach(img => {
-        if (img.dataset.replaced === '1' && img.src.startsWith('data:image/')) {
-          rows.push({ key: 'img:' + img.dataset.imgKey, content: img.src, type: 'image' });
-        }
+        if (img.dataset.replaced === '1' && img.src.startsWith('data:image/')) rows.push({ key: 'img:' + img.dataset.imgKey, content: img.src, type: 'image' });
       });
-      // Sections
       const secState = store.get(CONFIG.storage.sections, {});
-      CONFIG.sections.forEach(sec => {
-        rows.push({
-          key: 'section:' + sec.id,
-          content: secState[sec.id] === false ? 'false' : 'true',
-          type: 'section'
-        });
-      });
-      // Social
+      CONFIG.sections.forEach(sec => { rows.push({ key: 'section:' + sec.id, content: secState[sec.id] === false ? 'false' : 'true', type: 'section' }); });
       const socialData = store.get(CONFIG.storage.social, CONFIG.defaultSocial);
       rows.push({ key: 'social:main', content: JSON.stringify(socialData), type: 'social' });
-
       await push(rows);
     }
-
-    /* Push single item */
-    async function pushOne(key, content, type) {
-      await push([{ key, content, type }]);
-    }
-
+    async function pushOne(key, content, type) { await push([{ key, content, type }]); }
     function subscribe() {
-      const client = supa.client;
-      if (!client) return;
+      const client = supa.client; if (!client) return;
       unsubscribe();
       try {
-        channel = client
-          .channel('site_content_rt')
-          .on('postgres_changes',
-            { event: '*', schema: 'public', table: 'site_content' },
-            (payload) => {
-              if (applyingRemote) return;
-              const row = payload.new || payload.old;
-              if (row) applyRow(row);
-            })
-          .subscribe();
-      } catch (e) { console.warn('[sync] subscribe failed:', e); }
+        channel = client.channel('site_content_rt').on('postgres_changes',
+          { event: '*', schema: 'public', table: 'site_content' },
+          (payload) => { if (applyingRemote) return; const row = payload.new || payload.old; if (row) applyRow(row); }).subscribe();
+      } catch (e) {}
     }
-
     function unsubscribe() {
       const client = supa.client;
       if (channel && client) { try { client.removeChannel(channel); } catch {} }
       channel = null;
     }
-
     return { loadFromCloud, pushAll, pushOne, subscribe, unsubscribe, setStatus };
   })();
 
-  /* ═══ TRIAL BACKEND ═══ */
   const trialBackend = {
     async submit({ name, phone, slot }) {
       const response = await fetch(window.SUPABASE_URL + '/rest/v1/rpc/submit_trial_booking', {
         method: 'POST',
-        headers: {
-          'apikey': window.SUPABASE_ANON_KEY,
-          'Authorization': 'Bearer ' + window.SUPABASE_ANON_KEY,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          p_name:  String(name).slice(0, 80),
-          p_phone: String(phone).slice(0, 20),
-          p_slot:  String(slot).slice(0, 100)
-        })
+        headers: { 'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + window.SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_name: String(name).slice(0, 80), p_phone: String(phone).slice(0, 20), p_slot: String(slot).slice(0, 100) })
       });
-      if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
+      if (!response.ok) throw new Error('HTTP ' + response.status + ': ' + (await response.text()).slice(0, 180));
       return await response.json();
     }
   };
 
-  /* ═══ BOOKINGS ═══ */
   const bookings = (() => {
     let bookingsModalRef = null;
     function fmtDate(iso) {
@@ -1108,39 +1087,23 @@
         return '<span title="' + escHtml(full) + '">' + escHtml(relative) + '</span>';
       } catch { return '—'; }
     }
-    function whatsappLink(phone) {
-      const c = String(phone || '').replace(/\D/g, '');
-      return c ? `https://wa.me/${c}` : '#';
-    }
+    function whatsappLink(phone) { const c = String(phone || '').replace(/\D/g, ''); return c ? 'https://wa.me/' + c : '#'; }
     async function fetchAll() {
-      const client = supa.client;
-      if (!client) throw new Error('Supabase not ready');
+      const client = supa.client; if (!client) throw new Error('Supabase not ready');
       const { data: sessionData } = await client.auth.getSession();
-      const token = sessionData?.session?.access_token;
-      if (!token) throw new Error('Not authenticated');
+      const token = sessionData?.session?.access_token; if (!token) throw new Error('Not authenticated');
       const url = window.SUPABASE_URL + '/rest/v1/trial_bookings?select=*&order=created_at.desc&limit=500';
-      const res = await fetch(url, { headers: {
-        'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + token, 'Accept': 'application/json'
-      }});
-      if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 180)}`);
+      const res = await fetch(url, { headers: { 'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + token, 'Accept': 'application/json' }});
+      if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + (await res.text()).slice(0, 180));
       return await res.json();
     }
     async function updateStatus(id, newStatus) {
-      const client = supa.client;
-      if (!client) throw new Error('Supabase not ready');
+      const client = supa.client; if (!client) throw new Error('Supabase not ready');
       const { data: sessionData } = await client.auth.getSession();
-      const token = sessionData?.session?.access_token;
-      if (!token) throw new Error('Not authenticated');
+      const token = sessionData?.session?.access_token; if (!token) throw new Error('Not authenticated');
       const url = window.SUPABASE_URL + '/rest/v1/trial_bookings?id=eq.' + encodeURIComponent(id);
-      const res = await fetch(url, {
-        method: 'PATCH',
-        headers: {
-          'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + token,
-          'Content-Type': 'application/json', 'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ status: newStatus })
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const res = await fetch(url, { method: 'PATCH', headers: { 'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' }, body: JSON.stringify({ status: newStatus }) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
     }
     function renderTable() {
       const loading = $('#bookingsLoading'), empty = $('#bookingsEmpty'), error = $('#bookingsError');
@@ -1154,37 +1117,17 @@
       $('#bookingsPending').textContent = pending;
       $('#bookingsTime').textContent = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
       const badge = $('#bookingsBadge');
-      if (badge) {
-        if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); }
-        else hide(badge);
-      }
+      if (badge) { if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); } else hide(badge); }
       if (visible.length === 0) {
         if (all.length === 0) show(empty);
         else { tbody.innerHTML = '<tr><td colspan="7" class="text-center text-neutral-500 py-8 text-sm">No bookings match filter.</td></tr>'; show(table); }
         return;
       }
-      tbody.innerHTML = visible.map(b => `
-        <tr>
-          <td class="whitespace-nowrap">${fmtDate(b.created_at)}</td>
-          <td class="font-medium text-white">${escHtml(b.name || '—')}</td>
-          <td><a href="${whatsappLink(b.phone)}" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-brand font-mono text-xs">${escHtml(b.phone || '—')}</a></td>
-          <td class="text-neutral-400">${escHtml(b.slot || '—')}</td>
-          <td><select class="status-select" data-status-select="${escHtml(b.id)}">
-            <option value="pending"   ${(b.status||'pending')==='pending'   ? 'selected' : ''}>Pending</option>
-            <option value="contacted" ${(b.status||'')==='contacted' ? 'selected' : ''}>Contacted</option>
-            <option value="converted" ${(b.status||'')==='converted' ? 'selected' : ''}>Converted</option>
-            <option value="cancelled" ${(b.status||'')==='cancelled' ? 'selected' : ''}>Cancelled</option>
-          </select></td>
-          <td class="hidden sm:table-cell text-neutral-500 text-xs">${escHtml(b.source || '—')}</td>
-          <td><a href="${whatsappLink(b.phone)}" target="_blank" rel="noopener noreferrer" class="btn btn-icon" style="width:32px;height:32px;" title="WhatsApp">
-            <svg viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px;"><path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.57-1.72A12.75 12.75 0 0 0 16 28.8C23.06 28.8 28.8 23.06 28.8 16S23.06 3.2 16.001 3.2z"/></svg>
-          </a></td>
-        </tr>`).join('');
+      tbody.innerHTML = visible.map(b => '<tr><td class="whitespace-nowrap">' + fmtDate(b.created_at) + '</td><td class="font-medium text-white">' + escHtml(b.name || '—') + '</td><td><a href="' + whatsappLink(b.phone) + '" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-brand font-mono text-xs">' + escHtml(b.phone || '—') + '</a></td><td class="text-neutral-400">' + escHtml(b.slot || '—') + '</td><td><select class="status-select" data-status-select="' + escHtml(b.id) + '"><option value="pending" ' + ((b.status||'pending')==='pending'?'selected':'') + '>Pending</option><option value="contacted" ' + ((b.status||'')==='contacted'?'selected':'') + '>Contacted</option><option value="converted" ' + ((b.status||'')==='converted'?'selected':'') + '>Converted</option><option value="cancelled" ' + ((b.status||'')==='cancelled'?'selected':'') + '>Cancelled</option></select></td><td class="hidden sm:table-cell text-neutral-500 text-xs">' + escHtml(b.source || '—') + '</td><td><a href="' + whatsappLink(b.phone) + '" target="_blank" rel="noopener noreferrer" class="btn btn-icon" style="width:32px;height:32px;"><svg viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px;"><path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.57-1.72A12.75 12.75 0 0 0 16 28.8C23.06 28.8 28.8 23.06 28.8 16S23.06 3.2 16.001 3.2z"/></svg></a></td></tr>').join('');
       show(table);
       tbody.querySelectorAll('[data-status-select]').forEach(sel => {
         sel.addEventListener('change', async function () {
-          const id = this.dataset.statusSelect;
-          const newStatus = this.value;
+          const id = this.dataset.statusSelect, newStatus = this.value;
           const orig = (state.bookings.find(b => b.id === id)?.status) || 'pending';
           this.disabled = true;
           try { await updateStatus(id, newStatus); const b = state.bookings.find(x => x.id === id); if (b) b.status = newStatus; toast('Marked ' + newStatus); }
@@ -1203,11 +1146,7 @@
         const pending = data.filter(b => (b.status || 'pending') === 'pending').length;
         const badge = $('#bookingsBadge');
         if (badge) { if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); } else hide(badge); }
-      } catch (e) {
-        hide(loading); hide(table);
-        if (errorMsg) errorMsg.textContent = 'Failed: ' + e.message.slice(0, 120);
-        show(error);
-      }
+      } catch (e) { hide(loading); hide(table); if (errorMsg) errorMsg.textContent = 'Failed: ' + e.message.slice(0, 120); show(error); }
     }
     function exportCSV() {
       const all = state.bookings || [];
@@ -1216,9 +1155,7 @@
       const rows = all.map(b => [new Date(b.created_at || '').toLocaleString('en-IN'), b.name||'', b.phone||'', b.slot||'', b.status||'pending', b.source||'']);
       const csv = [headers, ...rows].map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
       const blob = new Blob([csv], { type: 'text/csv' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'trial-bookings-' + new Date().toISOString().slice(0, 10) + '.csv';
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'trial-bookings-' + new Date().toISOString().slice(0, 10) + '.csv';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       toast('CSV downloaded');
     }
@@ -1236,13 +1173,12 @@
         const pending = data.filter(b => (b.status || 'pending') === 'pending').length;
         const badge = $('#bookingsBadge');
         if (badge) { if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); } else hide(badge); }
-      } catch (e) { console.warn('[bookings] background failed:', e.message); }
+      } catch (e) {}
     }
     function clearOnLogout() { state.bookings = []; state.bookingsLoaded = false; hide($('#bookingsBadge')); }
     return { bind, load, onAdminUnlock, clearOnLogout, renderTable };
   })();
 
-  /* ═══ EDITABLE ═══ */
   const editable = (() => {
     const SKIP = new Set(['SCRIPT','STYLE','SVG','PATH','CIRCLE','RECT','LINE','POLYLINE','POLYGON','G','INPUT','TEXTAREA','SELECT','OPTION','IFRAME','IMG','BR','HR','CANVAS','VIDEO','SOURCE','AUDIO','NOSCRIPT','BUTTON']);
     function collect() {
@@ -1288,13 +1224,10 @@
     return { collect, save, restore, applyMode };
   })();
 
-  /* ═══ IMAGES ═══ */
   const images = (() => {
     function pick(imgEl) {
       const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/jpeg,image/png,image/webp,image/gif';
-      input.style.display = 'none';
+      input.type = 'file'; input.accept = 'image/jpeg,image/png,image/webp,image/gif'; input.style.display = 'none';
       document.body.appendChild(input);
       input.addEventListener('change', async () => {
         const file = input.files?.[0];
@@ -1303,16 +1236,10 @@
         const check = await validImage(file);
         if (!check.ok) { toast(check.error, 'error'); return; }
         process(file, async dataUrl => {
-          imgEl.src = dataUrl;
-          imgEl.dataset.replaced = '1';
-          save();
+          imgEl.src = dataUrl; imgEl.dataset.replaced = '1'; save();
           toast('Image replaced — syncing…');
-          try {
-            await contentSync.pushOne('img:' + imgEl.dataset.imgKey, dataUrl, 'image');
-            toast('Image synced to cloud');
-          } catch (e) {
-            toast('Cloud sync failed — saved locally', 'error');
-          }
+          try { await contentSync.pushOne('img:' + imgEl.dataset.imgKey, dataUrl, 'image'); toast('Image synced to cloud'); }
+          catch (e) { toast('Cloud sync failed — saved locally', 'error'); }
         });
       }, { once: true });
       input.click();
@@ -1322,15 +1249,11 @@
       reader.onload = (ev) => {
         const tmp = new Image();
         tmp.onload = () => {
-          const MAX = 1100;
-          const scale = Math.min(1, MAX / tmp.width);
-          const w = Math.max(1, Math.round(tmp.width * scale));
-          const h = Math.max(1, Math.round(tmp.height * scale));
-          const canvas = document.createElement('canvas');
-          canvas.width = w; canvas.height = h;
+          const MAX = 1100, scale = Math.min(1, MAX / tmp.width);
+          const w = Math.max(1, Math.round(tmp.width * scale)), h = Math.max(1, Math.round(tmp.height * scale));
+          const canvas = document.createElement('canvas'); canvas.width = w; canvas.height = h;
           canvas.getContext('2d').drawImage(tmp, 0, 0, w, h);
-          let out;
-          try { out = canvas.toDataURL('image/jpeg', 0.78); } catch { out = ev.target.result; }
+          let out; try { out = canvas.toDataURL('image/jpeg', 0.78); } catch { out = ev.target.result; }
           cb(out);
         };
         tmp.onerror = () => cb(ev.target.result);
@@ -1340,14 +1263,11 @@
     }
     function save() {
       const map = {};
-      $$('img[data-img-key]').forEach(img => {
-        if (img.dataset.replaced === '1' && img.src.startsWith('data:image/')) map[img.dataset.imgKey] = img.src;
-      });
+      $$('img[data-img-key]').forEach(img => { if (img.dataset.replaced === '1' && img.src.startsWith('data:image/')) map[img.dataset.imgKey] = img.src; });
       if (!store.set(CONFIG.storage.images, map)) toast('Storage full', 'error');
     }
     function restore() {
-      const map = store.get(CONFIG.storage.images, null);
-      if (!map) return;
+      const map = store.get(CONFIG.storage.images, null); if (!map) return;
       $$('img[data-img-key]').forEach(img => {
         const v = map[img.dataset.imgKey];
         if (typeof v === 'string' && v.startsWith('data:image/')) { img.src = v; img.dataset.replaced = '1'; }
@@ -1356,7 +1276,6 @@
     return { pick, save, restore };
   })();
 
-  /* ═══ SECTIONS (with cloud sync) ═══ */
   const sections = (() => {
     function apply() {
       const st = store.get(CONFIG.storage.sections, {});
@@ -1376,18 +1295,7 @@
         const visible = st[sec.id] !== false;
         const row = document.createElement('div');
         row.className = 'flex items-center justify-between gap-3 px-3.5 py-3 rounded-xl border transition-all ' + (visible ? 'bg-white/5 border-white/10' : 'bg-black/40 border-white/5 opacity-60');
-        row.innerHTML = `
-          <div class="flex items-center gap-3 min-w-0">
-            <span class="w-8 h-8 rounded-lg grid place-items-center shrink-0 ${visible ? 'bg-brand/20 border border-brand/40 text-brand' : 'bg-white/5 border border-white/10 text-neutral-500'}">
-              <i data-lucide="${sec.icon}" class="w-4 h-4"></i>
-            </span>
-            <span class="text-sm font-medium text-neutral-200 truncate">${sec.label}</span>
-          </div>
-          <label class="relative inline-flex items-center cursor-pointer shrink-0">
-            <input type="checkbox" data-sec-toggle="${sec.id}" class="sr-only peer" ${visible ? 'checked' : ''} />
-            <span class="w-9 h-[18px] rounded-full bg-neutral-700 peer-checked:bg-brand transition-colors"></span>
-            <span class="absolute left-0.5 top-0.5 w-3.5 h-3.5 rounded-full bg-white transition-transform peer-checked:translate-x-[18px]"></span>
-          </label>`;
+        row.innerHTML = '<div class="flex items-center gap-3 min-w-0"><span class="w-8 h-8 rounded-lg grid place-items-center shrink-0 ' + (visible ? 'bg-brand/20 border border-brand/40 text-brand' : 'bg-white/5 border border-white/10 text-neutral-500') + '"><i data-lucide="' + sec.icon + '" class="w-4 h-4"></i></span><span class="text-sm font-medium text-neutral-200 truncate">' + sec.label + '</span></div><label class="relative inline-flex items-center cursor-pointer shrink-0"><input type="checkbox" data-sec-toggle="' + sec.id + '" class="sr-only peer" ' + (visible ? 'checked' : '') + ' /><span class="w-9 h-[18px] rounded-full bg-neutral-700 peer-checked:bg-brand transition-colors"></span><span class="absolute left-0.5 top-0.5 w-3.5 h-3.5 rounded-full bg-white transition-transform peer-checked:translate-x-[18px]"></span></label>';
         list.appendChild(row);
       });
       if (window.lucide) lucide.createIcons();
@@ -1401,20 +1309,15 @@
           if (el) el.style.display = input.checked ? '' : 'none';
           if (!input.checked && el) $$('.reveal', el).forEach(r => r.classList.add('in'));
           syncUI();
-          toast(`${input.checked ? 'Shown' : 'Hidden'}: ${id}`, input.checked ? 'warn' : 'info');
-          /* Push to cloud */
-          try {
-            await contentSync.pushOne('section:' + id, input.checked ? 'true' : 'false', 'section');
-          } catch (e) {
-            console.warn('[sections] cloud push failed:', e.message);
-          }
+          toast((input.checked ? 'Shown' : 'Hidden') + ': ' + id, input.checked ? 'warn' : 'info');
+          try { await contentSync.pushOne('section:' + id, input.checked ? 'true' : 'false', 'section'); } catch (e) {}
         });
       });
     }
     function syncUI() {
       const st = store.get(CONFIG.storage.sections, {});
       CONFIG.sections.forEach(sec => {
-        const input = document.querySelector(`input[data-sec-toggle="${sec.id}"]`);
+        const input = document.querySelector('input[data-sec-toggle="' + sec.id + '"]');
         if (input) input.checked = st[sec.id] !== false;
       });
     }
@@ -1423,22 +1326,17 @@
       CONFIG.sections.forEach(sec => { const el = document.getElementById(sec.id); if (el) el.style.display = ''; });
       buildList();
       toast('All sections visible');
-      /* Push to cloud */
-      CONFIG.sections.forEach(async sec => {
-        try { await contentSync.pushOne('section:' + sec.id, 'true', 'section'); } catch {}
-      });
+      CONFIG.sections.forEach(async sec => { try { await contentSync.pushOne('section:' + sec.id, 'true', 'section'); } catch {} });
     }
     return { apply, buildList, showAll };
   })();
 
-  /* ═══ CALCULATOR ═══ */
   const calculator = (() => {
     const el = (id) => document.getElementById(id);
     function animateNumber(target, value) {
       if (!target) return;
       const start = parseFloat(target.textContent.replace(/[^0-9.]/g, '')) || 0;
-      const end = Math.round(value);
-      const t0 = performance.now();
+      const end = Math.round(value), t0 = performance.now();
       (function frame(now) {
         const p = Math.min(1, (now - t0) / 500);
         const eased = 1 - Math.pow(1 - p, 3);
@@ -1474,11 +1372,9 @@
     return { bind };
   })();
 
-  /* ═══ MODAL SYSTEM ═══ */
   const modal = (() => {
     function make({ rootId, panelId, closeSel, lockReason }) {
-      const root = document.getElementById(rootId);
-      const panel = document.getElementById(panelId);
+      const root = document.getElementById(rootId), panel = document.getElementById(panelId);
       if (!root || !panel) return null;
       function open() {
         show(root);
@@ -1497,23 +1393,13 @@
     return { make };
   })();
 
-  /* ═══ NAVIGATION ═══ */
   const nav = (() => {
     function buildMobileList() {
       const ul = document.getElementById('mobileNavList'); if (!ul) return;
       ul.innerHTML = '';
       CONFIG.navItems.forEach(item => {
         const li = document.createElement('li');
-        li.innerHTML = `
-          <a href="${item.href}" class="mobile-link nav-link">
-            <span class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-lg bg-brand/15 border border-brand/30 grid place-items-center shrink-0">
-                <i data-lucide="${item.icon}" class="w-4 h-4 text-brand"></i>
-              </span>
-              <span>${item.label}</span>
-            </span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>`;
+        li.innerHTML = '<a href="' + item.href + '" class="mobile-link nav-link"><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-brand/15 border border-brand/30 grid place-items-center shrink-0"><i data-lucide="' + item.icon + '" class="w-4 h-4 text-brand"></i></span><span>' + item.label + '</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>';
         ul.appendChild(li);
       });
       if (window.lucide) lucide.createIcons();
@@ -1524,8 +1410,7 @@
         a.addEventListener('click', (e) => {
           forceReleaseScroll();
           if (state.editMode) { e.preventDefault(); return; }
-          const id = a.getAttribute('href');
-          if (!id || id === '#') return;
+          const id = a.getAttribute('href'); if (!id || id === '#') return;
           const target = document.querySelector(id); if (!target) return;
           e.preventDefault();
           if (document.activeElement?.blur) { try { document.activeElement.blur(); } catch {} }
@@ -1560,7 +1445,6 @@
     return { buildMobileList, initSmoothScroll, initMobileMenu };
   })();
 
-  /* ═══ REVEAL ═══ */
   const reveal = (() => {
     function bind() {
       const items = $$('.reveal');
@@ -1578,7 +1462,6 @@
     return { bind };
   })();
 
-  /* ═══ STATIC CONTENT ═══ */
   const staticContent = (() => {
     const features = [
       { title: 'Imported equipment',  icon: 'dumbbell',   accent: 'brand', desc: 'Hammer Strength, Life Fitness and Rogue-grade free weights — maintained daily, never broken.' },
@@ -1626,7 +1509,6 @@
     return { render };
   })();
 
-  /* ═══ SOCIAL ═══ */
   const social = (() => {
     const S = (inner, filled) => '<svg viewBox="0 0 24 24" ' + (filled ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"') + '>' + inner + '</svg>';
     const ICONS = {
@@ -1652,8 +1534,7 @@
     };
     function detect(url) {
       if (!url || typeof url !== 'string') return PLATFORMS.generic;
-      const u = url.toLowerCase().trim();
-      if (!u) return PLATFORMS.generic;
+      const u = url.toLowerCase().trim(); if (!u) return PLATFORMS.generic;
       if (u.startsWith('mailto:')) return PLATFORMS.mail;
       if (u.startsWith('tel:')) return PLATFORMS.phone;
       if (u.includes('instagram.com')) return PLATFORMS.instagram;
@@ -1679,32 +1560,24 @@
     }
     const persist = (data) => store.set(CONFIG.storage.social, data);
     async function pushToCloud() {
-      try {
-        const data = load();
-        await contentSync.pushOne('social:main', JSON.stringify(data), 'social');
-      } catch (e) { console.warn('[social] cloud push failed:', e.message); }
+      try { const data = load(); await contentSync.pushOne('social:main', JSON.stringify(data), 'social'); } catch (e) {}
     }
     function render() {
       const grid = document.getElementById('socialGrid'); if (!grid) return;
-      const data = load();
-      const isEdit = state.socialEditMode;
+      const data = load(); const isEdit = state.socialEditMode;
       grid.innerHTML = '';
       data.forEach((item, idx) => {
         if (!isEdit && !item.visible) return;
         const platform = detect(item.url);
-        const slot = document.createElement('div');
-        slot.className = 'social-slot';
-        const btnCls = ['social-btn'];
-        if (isEdit && !item.visible) btnCls.push('is-hidden');
+        const slot = document.createElement('div'); slot.className = 'social-slot';
+        const btnCls = ['social-btn']; if (isEdit && !item.visible) btnCls.push('is-hidden');
         slot.innerHTML = '<button type="button" class="' + btnCls.join(' ') + '" data-social-slot="' + idx + '" aria-label="' + platform.label + '">' + ICONS[platform.key] + '</button>' +
           (isEdit ? '<button type="button" class="social-vis-toggle ' + (item.visible ? '' : 'is-off') + '" data-social-visibility="' + idx + '">' + (item.visible ? ICONS.eye : ICONS.eyeOff) + '</button>' : '');
         grid.appendChild(slot);
       });
       if (!grid.children.length) {
-        const empty = document.createElement('div');
-        empty.className = 'text-xs text-neutral-600 italic';
-        empty.textContent = 'All social links are hidden.';
-        grid.appendChild(empty);
+        const empty = document.createElement('div'); empty.className = 'text-xs text-neutral-600 italic';
+        empty.textContent = 'All social links are hidden.'; grid.appendChild(empty);
       }
       grid.querySelectorAll('[data-social-slot]').forEach(b => b.addEventListener('click', onSlotClick));
       grid.querySelectorAll('[data-social-visibility]').forEach(b => b.addEventListener('click', onVisibilityToggle));
@@ -1730,8 +1603,7 @@
     let socialModalRef = null;
     function openEdit(idx) {
       state.activeSocialSlot = idx;
-      const data = load();
-      const item = data[idx];
+      const data = load(); const item = data[idx];
       $('#socialUrlInput').value = item.url || '';
       $('#socialVisibleToggle').checked = item.visible !== false;
       socialModalRef?.open();
@@ -1739,8 +1611,7 @@
     }
     async function saveEdit() {
       if (state.activeSocialSlot === null) return;
-      const input = $('#socialUrlInput');
-      const visTog = $('#socialVisibleToggle');
+      const input = $('#socialUrlInput'), visTog = $('#socialVisibleToggle');
       let url = (input.value || '').trim().slice(0, CONFIG.limits.maxUrlLen);
       if (url && !/^(https?:\/\/|mailto:|tel:)/i.test(url) && /\.[a-z]{2,}/i.test(url)) url = 'https://' + url;
       if (url && !safeURL(url)) { toast('Please enter a valid URL', 'error'); return; }
@@ -1768,14 +1639,11 @@
       });
       $('#socialUrlInput')?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); saveEdit(); } });
       $('#socialSaveBtn')?.addEventListener('click', saveEdit);
-      $('#socialClearBtn')?.addEventListener('click', () => {
-        const inp = $('#socialUrlInput'); if (inp) { inp.value = ''; inp.focus(); }
-      });
+      $('#socialClearBtn')?.addEventListener('click', () => { const inp = $('#socialUrlInput'); if (inp) { inp.value = ''; inp.focus(); } });
     }
     return { bind, render, toggleEditMode };
   })();
 
-  /* ═══ AUTH ═══ */
   const auth = (() => {
     let onUnlock = () => {};
     let onLogout = () => {};
@@ -1796,9 +1664,7 @@
     }
     function throttleFail() {
       state.loginAttempts++;
-      if (state.loginAttempts >= CONFIG.limits.loginAttempts) {
-        state.loginLockedUntil = Date.now() + CONFIG.limits.loginLockMs; state.loginAttempts = 0;
-      }
+      if (state.loginAttempts >= CONFIG.limits.loginAttempts) { state.loginLockedUntil = Date.now() + CONFIG.limits.loginLockMs; state.loginAttempts = 0; }
     }
     const throttleReset = () => { state.loginAttempts = 0; state.loginLockedUntil = 0; };
     async function restoreSession() {
@@ -1807,7 +1673,7 @@
         const { data } = await client.auth.getSession();
         const user = data?.session?.user;
         if (user) { state.adminUser = user; onUnlock({ silent: true }); }
-      } catch (e) { console.warn('[auth] restore failed:', e); }
+      } catch (e) {}
     }
     function setCallbacks(handlers) { onUnlock = handlers.onUnlock || onUnlock; onLogout = handlers.onLogout || onLogout; }
     function bindLoginForm(loginModal) {
@@ -1850,7 +1716,6 @@
     return { restoreSession, setCallbacks, bindLoginForm, handleLogout };
   })();
 
-  /* ═══ ADMIN ═══ */
   const admin = (() => {
     let loginModal, sectionDrawer;
     function buildDrawer() {
@@ -1930,21 +1795,57 @@
       loginModal.open();
       setTimeout(() => { try { $('#loginEmail').focus(); } catch {} }, 260);
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       FIX #2 — DUAL ADMIN LOGIN TRIGGERS
+       1. Double-click on the footer copyright text (id: copyrightTrigger)
+       2. Keyboard shortcut: Ctrl+Shift+A / Cmd+Shift+A
+       All handlers bound reliably (works even if DOM already loaded).
+    ═══════════════════════════════════════════════════════════ */
     function bindAdminTrigger() {
-      document.addEventListener('click', (e) => {
-        const dot = e.target.closest('#adminDotBtn');
-        if (!dot) return;
-        e.preventDefault(); e.stopPropagation();
+      function attachTriggers() {
+        const trigger = document.getElementById('copyrightTrigger');
+        if (trigger) {
+          // Remove any previous listener to avoid duplicates
+          trigger.removeEventListener('dblclick', onDblClick);
+          trigger.addEventListener('dblclick', onDblClick, { passive: false });
+          trigger.addEventListener('mousedown', preventTripleSelect);
+          console.log('[admin] dblclick trigger bound to #copyrightTrigger');
+        } else {
+          console.warn('[admin] #copyrightTrigger element not found');
+        }
+      }
+
+      function onDblClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
         handleTrigger();
-      }, true);
+      }
+
+      function preventTripleSelect(e) {
+        // Prevent text selection cascade when double/triple clicking
+        if (e.detail > 1) e.preventDefault();
+      }
+
+      // Attach immediately if DOM already loaded, else wait
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attachTriggers);
+      } else {
+        attachTriggers();
+      }
+
+      // Global keyboard shortcut: Ctrl+Shift+A (Cmd+Shift+A on Mac)
       document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a' || e.code === 'KeyA')) {
+        const isA = (e.key === 'A' || e.key === 'a' || e.code === 'KeyA');
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && isA) {
           const tag = (e.target && e.target.tagName) || '';
-          if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-          e.preventDefault(); handleTrigger();
+          if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+          e.preventDefault();
+          handleTrigger();
         }
       });
     }
+
     function bind() {
       loginModal = modal.make({ rootId: 'loginModal', panelId: 'loginPanel', closeSel: '[data-close-login]', lockReason: 'login' });
       buildDrawer();
@@ -1971,10 +1872,7 @@
           const btn = $('#saveBtn');
           btn.classList.add('ring-2', 'ring-emerald-400');
           setTimeout(() => btn.classList.remove('ring-2', 'ring-emerald-400'), 900);
-        } catch (e) {
-          console.error('[save] cloud push failed:', e);
-          toast('Saved locally, cloud sync failed', 'error');
-        }
+        } catch (e) { toast('Saved locally, cloud sync failed', 'error'); }
       });
 
       $('#manageBtn')?.addEventListener('click', () => sectionDrawer.open());
@@ -1993,7 +1891,6 @@
     return { bind };
   })();
 
-  /* ═══ TRIAL FORM ═══ */
   const trial = (() => {
     let trialModal;
     function bind() {
@@ -2036,12 +1933,11 @@
     return { bind };
   })();
 
-  /* ═══ GLOBAL IMAGE EDIT ═══ */
   function bindGlobalImageEdit() {
     document.addEventListener('click', e => {
       if (!state.editMode) return;
       if (e.target.closest('#adminWrap') || e.target.closest('#sectionDrawer') || e.target.closest('#trialModal') ||
-          e.target.closest('#socialWrap') || e.target.closest('#socialModal') || e.target.closest('#adminDotBtn') ||
+          e.target.closest('#socialWrap') || e.target.closest('#socialModal') || e.target.closest('#copyrightTrigger') ||
           e.target.closest('#loginModal') || e.target.closest('#mobileMenu') || e.target.closest('#mobileMenuBtn') ||
           e.target.closest('header') || e.target.closest('#bookingsModal') || e.target.closest('.whatsapp-btn')) return;
       const img = e.target.closest('img[data-img-key]');
@@ -2050,7 +1946,6 @@
     }, true);
   }
 
-  /* ═══ WHATSAPP ═══ */
   function bindWhatsApp() {
     const btn = document.getElementById('whatsappBtn'); if (!btn) return;
     const number = (window.WHATSAPP_NUMBER || '').replace(/\D/g, '');
@@ -2059,7 +1954,6 @@
     btn.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(message);
   }
 
-  /* ═══ BOOTSTRAP ═══ */
   async function bootstrap() {
     if (window.lucide) lucide.createIcons();
     staticContent.render();
@@ -2082,25 +1976,42 @@
     reveal.bind();
 
     supa.init();
-
-    /* Load cloud content — overrides local cache with latest */
     await contentSync.loadFromCloud();
-
-    /* Re-apply sections after cloud data */
     sections.apply();
     social.render();
     if (window.lucide) lucide.createIcons();
-
     await auth.restoreSession();
-
     forceReleaseScroll();
 
     console.log('%cFitnation ready', 'color:#dc2626;font-weight:700;');
-    console.log('Editable nodes:', state.editableEls.length);
+    console.log('Admin: double-click footer copyright text, or press Ctrl+Shift+A');
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootstrap);
-  else bootstrap();
+  /* ═══════════════════════════════════════════════════════════
+     FIX #1 — Reveal app after everything loads (no FOUC)
+  ═══════════════════════════════════════════════════════════ */
+  function revealApp() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('app-ready');
+      });
+    });
+  }
+
+  function run() {
+    bootstrap()
+      .catch(err => console.error('[boot] failed:', err))
+      .finally(() => revealApp());
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+
+  // Safety net: force reveal if bootstrap takes too long
+  setTimeout(revealApp, 1500);
 })();
 </script>
 </body>
