@@ -4,10 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>Fitnation Gym Patna | Forge Your Strongest Self</title>
 <meta name="description" content="Fitnation Gym Patna — Patna's most advanced fitness floor. Premium equipment, certified trainers, flexible batches. Book your free trial today." />
 
-<!-- DEPENDENCIES -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -18,22 +20,17 @@
 
 <script>
   tailwind.config = {
-    theme: {
-      extend: {
-        colors: { ink: '#121212', ink2: '#181818', ink3: '#0a0a0a', brand: '#dc2626', gold: '#f59e0b' },
-        fontFamily: { display: ['Oswald', 'system-ui', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] }
-      }
-    }
+    theme: { extend: {
+      colors: { ink: '#121212', ink2: '#181818', ink3: '#0a0a0a', brand: '#dc2626', gold: '#f59e0b' },
+      fontFamily: { display: ['Oswald', 'system-ui', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] }
+    } }
   };
 </script>
 
 <script>
-  /* Supabase config */
   window.SUPABASE_URL      = 'https://ytgtomaeouskudwuscxe.supabase.co';
   window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0Z3RvbWFlb3Vza3Vkd3VzY3hlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzU1NzcsImV4cCI6MjEwNzMxMTU3N30.e69DDYDb-X2HdgYCYO8twUs6gXY30N-KVDfSv8phG04';
-
-  /* WhatsApp */
-  window.WHATSAPP_NUMBER  = '919031002808';
+  window.WHATSAPP_NUMBER  = '919000000000';
   window.WHATSAPP_MESSAGE = "Hi Fitnation Gym! I'd like to know more about membership plans.";
 </script>
 
@@ -43,7 +40,6 @@
   body { font-family: 'Inter', sans-serif; background: #121212; }
   .font-display { font-family: 'Oswald', sans-serif; letter-spacing: .015em; }
 
-  /* BUTTONS */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
          padding: .75rem 1.5rem; border-radius: .75rem; font-weight: 600; font-size: .875rem; line-height: 1;
          border: 1px solid transparent; cursor: pointer; text-decoration: none; white-space: nowrap;
@@ -65,7 +61,6 @@
   .btn-icon      { padding: 0; width: 2.625rem; height: 2.625rem; border-radius: .75rem; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); color: #a3a3a3; }
   .btn-icon:hover { color: #fff; border-color: rgba(220,38,38,.65); transform: translateY(-2px); box-shadow: 0 0 16px rgba(220,38,38,.4); }
 
-  /* CARDS */
   .glass      { background: rgba(255,255,255,.045); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.09); }
   .glass-dark { background: rgba(10,10,10,.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.08); }
   .card-lift  { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease; }
@@ -75,7 +70,6 @@
   .reveal     { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
   .reveal.in  { opacity: 1; transform: none; }
 
-  /* EDIT MODE */
   body.edit-mode [contenteditable="true"] { outline: 1px dashed rgba(245,158,11,.55); outline-offset: 3px; border-radius: 5px; cursor: text; }
   body.edit-mode [contenteditable="true"]:hover { outline-color: #f59e0b; background: rgba(245,158,11,.07); }
   body.edit-mode [contenteditable="true"]:focus { outline: 2px solid #f59e0b; background: rgba(245,158,11,.12); }
@@ -87,7 +81,6 @@
     letter-spacing: .04em; text-align: center; padding: 3px 0; text-transform: uppercase;
   }
 
-  /* FIELDS */
   .field { width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
            border-radius: .7rem; padding: .7rem .9rem; color: #f5f5f5; font-size: .875rem;
            transition: border-color .2s, box-shadow .2s, background .2s; outline: none; }
@@ -95,7 +88,6 @@
   .field option { background: #181818; color: #f5f5f5; }
   @media (max-width: 640px) { .field { font-size: 16px; } }
 
-  /* SOCIAL */
   .social-slot { position: relative; width: 42px; height: 42px; flex-shrink: 0; }
   .social-btn { width: 100%; height: 100%; border-radius: 12px; display: grid; place-items: center;
                 background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09);
@@ -112,7 +104,6 @@
   body.social-edit .social-btn::after { content: ''; position: absolute; inset: 0; border-radius: 12px;
                                          border: 1px dashed rgba(245,158,11,.45); pointer-events: none; }
 
-  /* ADMIN */
   .admin-dot { display: inline-block; background: transparent; border: none; padding: 12px 16px; margin: -12px -16px;
                font: inherit; line-height: 1; color: inherit; opacity: .15; cursor: pointer; outline: none;
                transition: opacity .3s ease, color .3s ease, text-shadow .3s ease;
@@ -123,7 +114,6 @@
   #adminWrap.admin-hidden { display: none !important; }
   #adminWrap.admin-enter  { opacity: 0; transform: translateY(20px) scale(.96); }
 
-  /* MOBILE MENU */
   #mobileMenuPanel { background: #121212; }
   .mobile-link { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px;
                  border-radius: 12px; color: #d4d4d4; font-size: 15px; font-weight: 500;
@@ -131,11 +121,9 @@
   .mobile-link:hover { background: rgba(220,38,38,.1); border-color: rgba(220,38,38,.35); color: #fff; }
   .mobile-link svg.chev { width: 16px; height: 16px; color: #525252; flex-shrink: 0; }
 
-  /* MODALS */
   .modal-panel { max-height: calc(100dvh - 2rem); overflow-y: auto; -webkit-overflow-scrolling: touch; }
   @media (max-width: 480px) { .modal-panel { max-height: calc(100dvh - 1rem); } }
 
-  /* MISC */
   .result-bar    { height: 6px; border-radius: 999px; background: rgba(255,255,255,.06); overflow: hidden; }
   .result-bar > span { display: block; height: 100%; border-radius: 999px; width: 0%; transition: width .8s cubic-bezier(.2,.8,.2,1); }
   .map-iframe    { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(35%) contrast(1.1); }
@@ -145,30 +133,22 @@
                         border-radius: 50%; animation: spin .7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* WHATSAPP FLOATING BUTTON */
   .whatsapp-btn {
-    position: fixed;
-    bottom: max(1.5rem, calc(var(--safe-b) + 1rem));
-    left:   max(1.5rem, calc(var(--safe-l) + 1rem));
+    position: fixed; bottom: max(1.5rem, calc(var(--safe-b) + 1rem)); left: max(1.5rem, calc(var(--safe-l) + 1rem));
     width: 58px; height: 58px; border-radius: 9999px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     display: grid; place-items: center; color: #fff; text-decoration: none;
     box-shadow: 0 8px 24px rgba(37, 211, 102, .42), 0 4px 10px rgba(0, 0, 0, .35);
-    z-index: 92;
-    transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
-    -webkit-tap-highlight-color: transparent;
-    animation: whatsappPulse 2.6s ease-out infinite;
+    z-index: 92; transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+    -webkit-tap-highlight-color: transparent; animation: whatsappPulse 2.6s ease-out infinite;
   }
   .whatsapp-btn:hover { transform: translateY(-4px) scale(1.06); box-shadow: 0 12px 32px rgba(37, 211, 102, .6), 0 6px 14px rgba(0, 0, 0, .4); }
   .whatsapp-btn:active { transform: scale(.96); }
   .whatsapp-btn svg { width: 30px; height: 30px; display: block; }
-  .whatsapp-btn::after {
-    content: 'Chat with us'; position: absolute; left: calc(100% + 12px); top: 50%; transform: translateY(-50%);
-    background: #181818; color: #fff; font-size: 12px; font-weight: 600; padding: 6px 12px;
-    border-radius: 8px; white-space: nowrap; opacity: 0; pointer-events: none;
-    transition: opacity .25s ease, transform .25s ease;
-    border: 1px solid rgba(255,255,255,.08); box-shadow: 0 6px 20px rgba(0,0,0,.4);
-  }
+  .whatsapp-btn::after { content: 'Chat with us'; position: absolute; left: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+    background: #181818; color: #fff; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px;
+    white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
+    border: 1px solid rgba(255,255,255,.08); box-shadow: 0 6px 20px rgba(0,0,0,.4); }
   .whatsapp-btn:hover::after { opacity: 1; transform: translateY(-50%) translateX(2px); }
   @keyframes whatsappPulse {
     0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,.42), 0 4px 10px rgba(0,0,0,.35), 0 0 0 0 rgba(37,211,102,.55); }
@@ -180,101 +160,53 @@
     .whatsapp-btn::after { display: none; }
   }
 
-  /* ═══════════ BOOKINGS TABLE ═══════════ */
-  .bookings-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  .bookings-table thead th {
-    text-align: left;
-    padding: 10px 12px;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: #737373;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    position: sticky;
-    top: 0;
-    background: #181818;
-    z-index: 1;
-  }
-  .bookings-table tbody td {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,.05);
-    color: #d4d4d4;
-    vertical-align: middle;
-  }
+  .bookings-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .bookings-table thead th { text-align: left; padding: 10px 12px; font-weight: 700; font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase; color: #737373;
+    border-bottom: 1px solid rgba(255,255,255,.08); position: sticky; top: 0; background: #181818; z-index: 1; }
+  .bookings-table tbody td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,.05); color: #d4d4d4; vertical-align: middle; }
   .bookings-table tbody tr:hover { background: rgba(220,38,38,.05); }
   .bookings-table tbody tr:last-child td { border-bottom: none; }
-
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 3px 9px;
-    border-radius: 999px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-  }
+  .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px;
+    font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
   .status-pending    { background: rgba(245,158,11,.15); color: #f59e0b; border: 1px solid rgba(245,158,11,.3); }
   .status-contacted  { background: rgba(59,130,246,.15); color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
   .status-converted  { background: rgba(34,197,94,.15);  color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
   .status-cancelled  { background: rgba(220,38,38,.15);  color: #f87171; border: 1px solid rgba(220,38,38,.3); }
-
-  .status-select {
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 6px;
-    padding: 4px 8px;
-    color: #d4d4d4;
-    font-size: 11px;
-    outline: none;
-    cursor: pointer;
-  }
+  .status-select { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 6px; padding: 4px 8px; color: #d4d4d4; font-size: 11px; outline: none; cursor: pointer; }
   .status-select:focus { border-color: #dc2626; }
-
-  .bookings-empty {
-    text-align: center;
-    padding: 48px 20px;
-    color: #737373;
-    font-size: 13px;
-  }
+  .bookings-empty { text-align: center; padding: 48px 20px; color: #737373; font-size: 13px; }
   .bookings-empty svg { width: 48px; height: 48px; margin: 0 auto 12px; opacity: .4; }
-
-  /* Scrollbar in bookings modal */
   .bookings-scroll { overflow-x: auto; overflow-y: auto; max-height: calc(100dvh - 260px); }
   @media (max-width: 640px) {
-    .bookings-table thead th,
-    .bookings-table tbody td { padding: 8px 6px; font-size: 11px; }
+    .bookings-table thead th, .bookings-table tbody td { padding: 8px 6px; font-size: 11px; }
   }
 
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #121212; }
   ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 8px; border: 2px solid #121212; }
   ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+
+  .sync-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ade80; margin-right: 6px; }
+  .sync-dot.syncing { background: #f59e0b; animation: pulse 1s ease-in-out infinite; }
+  .sync-dot.error { background: #ef4444; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
 </style>
 </head>
 
 <body class="bg-ink text-neutral-200 antialiased selection:bg-brand selection:text-white">
 
-<!-- WHATSAPP FLOATING BUTTON -->
-<a id="whatsappBtn" href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat with us on WhatsApp">
-  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-    <path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.57-1.72A12.75 12.75 0 0 0 16 28.8C23.06 28.8 28.8 23.06 28.8 16S23.06 3.2 16.001 3.2zm0 23.2c-1.98 0-3.92-.53-5.62-1.54l-.4-.24-3.9 1.02 1.04-3.8-.26-.4A10.35 10.35 0 0 1 5.6 16c0-5.74 4.67-10.4 10.4-10.4S26.4 10.26 26.4 16 21.74 26.4 16 26.4zm5.72-7.78c-.31-.16-1.85-.91-2.14-1.02-.28-.1-.49-.16-.7.16-.2.31-.8 1.02-.98 1.23-.18.2-.36.23-.67.08-.31-.16-1.32-.49-2.51-1.55-.93-.83-1.56-1.85-1.74-2.16-.18-.31-.02-.48.14-.64.14-.14.31-.36.47-.55.16-.18.21-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.7-1.7-.96-2.32-.25-.61-.51-.53-.7-.54l-.6-.01c-.2 0-.53.08-.81.39-.28.31-1.06 1.04-1.06 2.53 0 1.49 1.08 2.93 1.24 3.13.16.2 2.14 3.26 5.18 4.57.72.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.79-.73 2.04-1.44.25-.71.25-1.31.18-1.44-.08-.13-.28-.2-.59-.36z"/>
-  </svg>
+<!-- WHATSAPP -->
+<a id="whatsappBtn" href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.57-1.72A12.75 12.75 0 0 0 16 28.8C23.06 28.8 28.8 23.06 28.8 16S23.06 3.2 16.001 3.2zm0 23.2c-1.98 0-3.92-.53-5.62-1.54l-.4-.24-3.9 1.02 1.04-3.8-.26-.4A10.35 10.35 0 0 1 5.6 16c0-5.74 4.67-10.4 10.4-10.4S26.4 10.26 26.4 16 21.74 26.4 16 26.4zm5.72-7.78c-.31-.16-1.85-.91-2.14-1.02-.28-.1-.49-.16-.7.16-.2.31-.8 1.02-.98 1.23-.18.2-.36.23-.67.08-.31-.16-1.32-.49-2.51-1.55-.93-.83-1.56-1.85-1.74-2.16-.18-.31-.02-.48.14-.64.14-.14.31-.36.47-.55.16-.18.21-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.7-1.7-.96-2.32-.25-.61-.51-.53-.7-.54l-.6-.01c-.2 0-.53.08-.81.39-.28.31-1.06 1.04-1.06 2.53 0 1.49 1.08 2.93 1.24 3.13.16.2 2.14 3.26 5.18 4.57.72.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.79-.73 2.04-1.44.25-.71.25-1.31.18-1.44-.08-.13-.28-.2-.59-.36z"/></svg>
 </a>
 
 <!-- HEADER -->
 <header class="fixed top-0 inset-x-0 z-50 glass-dark border-b border-white/10">
   <nav class="max-w-7xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-3">
     <a href="#hero" class="flex items-center gap-2.5 group">
-      <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-gold grid place-items-center shadow-lg shadow-red-900/40 group-hover:scale-110 transition-transform">
-        <i data-lucide="dumbbell" class="w-5 h-5 text-white"></i>
-      </span>
+      <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-gold grid place-items-center shadow-lg shadow-red-900/40 group-hover:scale-110 transition-transform"><i data-lucide="dumbbell" class="w-5 h-5 text-white"></i></span>
       <span class="font-display text-lg font-bold tracking-widest text-white">FIT<span class="text-brand">NATION</span></span>
     </a>
     <ul class="hidden lg:flex items-center gap-6 text-sm font-medium text-neutral-400">
@@ -287,12 +219,8 @@
       <li><a href="#location"   class="nav-link hover:text-brand transition-colors">Location</a></li>
     </ul>
     <div class="flex items-center gap-2">
-      <button data-open-trial class="btn btn-primary btn-sm hidden sm:inline-flex">
-        <i data-lucide="zap"></i><span>Book Free Trial</span>
-      </button>
-      <button id="mobileMenuBtn" class="btn btn-icon lg:hidden" aria-label="Open menu">
-        <i data-lucide="menu" class="w-5 h-5"></i>
-      </button>
+      <button data-open-trial class="btn btn-primary btn-sm hidden sm:inline-flex"><i data-lucide="zap"></i><span>Book Free Trial</span></button>
+      <button id="mobileMenuBtn" class="btn btn-icon lg:hidden" aria-label="Open menu"><i data-lucide="menu" class="w-5 h-5"></i></button>
     </div>
   </nav>
 </header>
@@ -325,12 +253,8 @@
           that pushes you past every limit.
         </p>
         <div class="reveal mt-7 flex flex-wrap items-center gap-3">
-          <button data-open-trial class="btn btn-primary btn-lg">
-            <i data-lucide="flame"></i><span>Claim your free trial</span><i data-lucide="arrow-right"></i>
-          </button>
-          <a href="#pricing" class="btn btn-outline btn-lg nav-link">
-            <i data-lucide="tag"></i><span>View membership plans</span>
-          </a>
+          <button data-open-trial class="btn btn-primary btn-lg"><i data-lucide="flame"></i><span>Claim your free trial</span><i data-lucide="arrow-right"></i></button>
+          <a href="#pricing" class="btn btn-outline btn-lg nav-link"><i data-lucide="tag"></i><span>View membership plans</span></a>
         </div>
         <div class="reveal mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
           <div class="glass rounded-2xl p-4 card-lift"><div class="font-display text-3xl font-bold text-brand">1200+</div><div class="text-xs text-neutral-400 mt-1">Active members</div></div>
@@ -366,10 +290,7 @@
       </div>
       <div class="reveal mt-12 grid lg:grid-cols-5 gap-6">
         <div class="lg:col-span-3 glass rounded-3xl p-6 sm:p-8">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="w-10 h-10 rounded-xl bg-brand/20 border border-brand/40 grid place-items-center"><i data-lucide="calculator" class="w-5 h-5 text-brand"></i></span>
-            <h3 class="font-display text-xl font-semibold text-white">Your details</h3>
-          </div>
+          <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-xl bg-brand/20 border border-brand/40 grid place-items-center"><i data-lucide="calculator" class="w-5 h-5 text-brand"></i></span><h3 class="font-display text-xl font-semibold text-white">Your details</h3></div>
           <div class="grid sm:grid-cols-2 gap-5">
             <div><label class="block text-xs font-semibold tracking-wider text-neutral-400 uppercase mb-2">Weight (kg)</label><input id="cWeight" type="number" value="70" min="20" max="300" class="field" /></div>
             <div><label class="block text-xs font-semibold tracking-wider text-neutral-400 uppercase mb-2">Height (cm)</label><input id="cHeight" type="number" value="170" min="100" max="250" class="field" /></div>
@@ -395,15 +316,8 @@
         <div class="lg:col-span-2 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-brand/25 via-ink2 to-gold/15 border border-brand/25 relative overflow-hidden flex flex-col">
           <div class="absolute inset-0 grid-bg opacity-40 pointer-events-none"></div>
           <div class="relative flex-1 flex flex-col">
-            <div class="flex items-center gap-3">
-              <span class="w-10 h-10 rounded-xl bg-gold/20 border border-gold/40 grid place-items-center"><i data-lucide="flame" class="w-5 h-5 text-gold"></i></span>
-              <h3 class="font-display text-xl font-semibold text-white">Your results</h3>
-            </div>
-            <div class="mt-6">
-              <div class="text-xs tracking-[0.2em] text-neutral-400 uppercase">Maintenance calories</div>
-              <div class="font-display text-5xl font-bold text-white mt-1 leading-none"><span id="rMain">—</span></div>
-              <div class="text-xs text-neutral-400 mt-1">kcal / day</div>
-            </div>
+            <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-xl bg-gold/20 border border-gold/40 grid place-items-center"><i data-lucide="flame" class="w-5 h-5 text-gold"></i></span><h3 class="font-display text-xl font-semibold text-white">Your results</h3></div>
+            <div class="mt-6"><div class="text-xs tracking-[0.2em] text-neutral-400 uppercase">Maintenance calories</div><div class="font-display text-5xl font-bold text-white mt-1 leading-none"><span id="rMain">—</span></div><div class="text-xs text-neutral-400 mt-1">kcal / day</div></div>
             <div class="mt-6 space-y-3.5 flex-1">
               <div><div class="flex justify-between text-xs text-neutral-400 mb-1.5"><span>BMR (at rest)</span><span class="text-gold font-semibold"><span id="rBmr">—</span> kcal</span></div><div class="result-bar"><span id="barBmr" class="bg-gold"></span></div></div>
               <div><div class="flex justify-between text-xs text-neutral-400 mb-1.5"><span>Fat loss target</span><span class="text-brand font-semibold"><span id="rCut">—</span> kcal</span></div><div class="result-bar"><span id="barCut" class="bg-brand"></span></div></div>
@@ -548,7 +462,7 @@
       <div class="grid lg:grid-cols-5 gap-6 mt-12 lg:items-stretch">
         <div class="lg:col-span-2 flex flex-col gap-5">
           <div class="reveal glass rounded-2xl p-6"><div class="flex items-start gap-4"><span class="w-11 h-11 rounded-xl bg-brand/20 border border-brand/40 grid place-items-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-brand"></i></span><div><h3 class="font-display text-lg font-semibold text-white">Address</h3><p class="text-sm text-neutral-400 mt-1.5 leading-relaxed">Fitnation Gym, 3rd Floor, Ambition Ojha Plaza, Above Domino's Pizza, Opposite Sabzi Mandi, Kadamkuan, Patna, Bihar 800003</p></div></div></div>
-          <div class="reveal glass rounded-2xl p-6"><div class="flex items-start gap-4"><span class="w-11 h-11 rounded-xl bg-gold/20 border border-gold/40 grid place-items-center shrink-0"><i data-lucide="phone" class="w-5 h-5 text-gold"></i></span><div><h3 class="font-display text-lg font-semibold text-white">Call / WhatsApp</h3><p class="text-sm text-neutral-400 mt-1.5">+91 9031002808</p><p class="text-sm text-neutral-400">+91 90310 02808</p></div></div></div>
+          <div class="reveal glass rounded-2xl p-6"><div class="flex items-start gap-4"><span class="w-11 h-11 rounded-xl bg-gold/20 border border-gold/40 grid place-items-center shrink-0"><i data-lucide="phone" class="w-5 h-5 text-gold"></i></span><div><h3 class="font-display text-lg font-semibold text-white">Call / WhatsApp</h3><p class="text-sm text-neutral-400 mt-1.5">+91 90000 00000</p><p class="text-sm text-neutral-400">+91 90000 00001</p></div></div></div>
           <div class="reveal glass rounded-2xl p-6 flex-1"><div class="flex items-start gap-4"><span class="w-11 h-11 rounded-xl bg-brand/20 border border-brand/40 grid place-items-center shrink-0"><i data-lucide="clock" class="w-5 h-5 text-brand"></i></span><div><h3 class="font-display text-lg font-semibold text-white">Opening hours</h3><p class="text-sm text-neutral-400 mt-1.5">Mon – Sat: 5:30 am – 10:30 pm</p><p class="text-sm text-neutral-400">Sunday: 6:00 am – 12:00 pm</p></div></div></div>
           <a href="https://maps.app.goo.gl/6A8PRscaKpiJ2ftr9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg btn-block"><i data-lucide="navigation"></i><span>Get directions</span></a>
         </div>
@@ -592,13 +506,13 @@
           <h4 class="font-display text-base font-semibold text-white tracking-wider">Visit us</h4>
           <ul class="mt-5 space-y-3 text-sm text-neutral-400">
             <li class="flex items-start gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand mt-0.5 shrink-0"></i><span>3rd Floor, Ambition Ojha Plaza, Above Domino's Pizza, Kadamkuan, Patna</span></li>
-            <li class="flex items-start gap-2.5"><i data-lucide="phone" class="w-4 h-4 text-brand mt-0.5 shrink-0"></i><span>+91 9031002808</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="phone" class="w-4 h-4 text-brand mt-0.5 shrink-0"></i><span>+91 90000 00000</span></li>
             <li class="flex items-start gap-2.5"><i data-lucide="mail" class="w-4 h-4 text-brand mt-0.5 shrink-0"></i><span>hello@fitnationpatna.in</span></li>
           </ul>
         </div>
       </div>
       <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-        <p class="text-xs text-neutral-500">© 2025 Fitnation Gym Patna. All rights reserved.<button id="adminDotBtn" class="admin-dot" aria-label="Admin access">.</button></p>
+        <p class="text-xs text-neutral-500">© 2025 Fitnation Gym Patna. All rights reserved.<button id="adminDotBtn" class="admin-dot" aria-label="Admin access" type="button">.</button></p>
         <p class="text-xs text-neutral-500">Built for people who refuse average.</p>
       </div>
     </div>
@@ -633,9 +547,8 @@
       </div>
       <form id="trialForm" class="px-7 pb-7 space-y-4" novalidate onsubmit="event.preventDefault(); event.stopPropagation(); return false;">
         <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Full name</label><input type="text" name="name" required minlength="2" maxlength="80" placeholder="e.g. Rahul Kumar" class="field" /></div>
-        <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Phone number</label><input type="tel" name="phone" required pattern="[0-9+ ]{10,15}" placeholder="+91 9031002808" class="field" /></div>
-        <div>
-          <label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Preferred slot</label>
+        <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Phone number</label><input type="tel" name="phone" required pattern="[0-9+ ]{10,15}" placeholder="+91 90000 00000" class="field" /></div>
+        <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Preferred slot</label>
           <select name="slot" class="field">
             <option>Morning — 5:30 am to 10:30 am</option>
             <option>Afternoon — 12:00 pm to 4:00 pm</option>
@@ -645,13 +558,12 @@
           </select>
         </div>
         <button type="submit" id="trialSubmit" class="btn btn-primary btn-block btn-lg">Confirm my free trial</button>
-        <p class="text-xs text-neutral-500 text-center leading-relaxed">By submitting, you agree to be contacted by our team within 24 hours.</p>
       </form>
     </div>
   </div>
 </div>
 
-<!-- SOCIAL EDIT MODAL -->
+<!-- SOCIAL MODAL -->
 <div id="socialModal" class="fixed inset-0 z-[110] hidden">
   <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-close-social></div>
   <div class="absolute inset-0 flex items-center justify-center p-4 overflow-y-auto pointer-events-none">
@@ -660,14 +572,9 @@
         <button data-close-social class="absolute top-5 right-5 btn btn-icon"><i data-lucide="x" class="w-4 h-4"></i></button>
         <span class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-gold grid place-items-center"><i data-lucide="link-2" class="w-6 h-6 text-white"></i></span>
         <h3 class="font-display text-2xl font-bold text-white mt-4">Edit social link</h3>
-        <p class="text-sm text-neutral-400 mt-1.5">Paste the full URL — the icon auto-detects the platform.</p>
       </div>
       <div class="px-7 pb-7 space-y-4">
         <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">URL</label><input id="socialUrlInput" type="text" maxlength="500" placeholder="https://instagram.com/yourprofile" class="field" /></div>
-        <div class="glass rounded-xl p-4 flex items-center gap-3">
-          <span id="socialPreviewIcon" class="w-10 h-10 rounded-xl bg-brand/15 border border-brand/40 grid place-items-center text-brand"></span>
-          <div><div class="text-xs text-neutral-500 font-semibold">Detected platform</div><div id="socialPreviewName" class="text-sm font-semibold text-white">Generic link</div></div>
-        </div>
         <div class="flex items-center justify-between glass rounded-xl px-4 py-3">
           <span class="text-xs font-semibold text-neutral-300">Visible on site</span>
           <label class="relative inline-flex items-center cursor-pointer">
@@ -694,54 +601,35 @@
         <button data-close-login class="absolute top-5 right-5 btn btn-icon"><i data-lucide="x" class="w-4 h-4"></i></button>
         <span class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-gold grid place-items-center"><i data-lucide="lock" class="w-6 h-6 text-white"></i></span>
         <h3 class="font-display text-2xl font-bold text-white mt-4">Admin login</h3>
-        <p class="text-sm text-neutral-400 mt-1.5">Sign in to unlock editing tools.</p>
       </div>
       <form id="loginForm" class="px-7 pb-7 space-y-4" novalidate onsubmit="event.preventDefault(); return false;">
         <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Email</label><input id="loginEmail" type="email" required placeholder="admin@example.com" class="field" autocomplete="username" /></div>
         <div><label class="block text-xs font-semibold text-neutral-400 uppercase mb-2">Password</label><input id="loginPassword" type="password" required minlength="6" placeholder="Enter your password" class="field" autocomplete="current-password" /></div>
         <p id="loginError" class="hidden text-xs text-red-400 font-medium" role="alert"></p>
         <button type="submit" id="loginSubmit" class="btn btn-primary btn-block btn-lg">Sign in</button>
-        <p class="text-xs text-neutral-600 text-center">Protected by Supabase Authentication.</p>
       </form>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     TRIAL BOOKINGS MODAL (NEW)
-════════════════════════════════════════════════════════════ -->
+<!-- BOOKINGS MODAL -->
 <div id="bookingsModal" class="fixed inset-0 z-[135] hidden">
   <div class="absolute inset-0 bg-black/85 backdrop-blur-md" data-close-bookings></div>
   <div class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 overflow-y-auto pointer-events-none">
-    <div id="bookingsPanel"
-         class="modal-panel pointer-events-auto w-full max-w-5xl rounded-3xl bg-ink2 border border-white/10 shadow-2xl my-auto transition-all duration-300 overflow-hidden flex flex-col">
-
-      <!-- Header -->
+    <div id="bookingsPanel" class="modal-panel pointer-events-auto w-full max-w-5xl rounded-3xl bg-ink2 border border-white/10 shadow-2xl my-auto transition-all duration-300 overflow-hidden flex flex-col">
       <div class="relative px-6 sm:px-7 pt-6 sm:pt-7 pb-5 bg-gradient-to-br from-brand/20 via-transparent to-gold/10 border-b border-white/10">
         <button data-close-bookings class="absolute top-5 right-5 btn btn-icon"><i data-lucide="x" class="w-4 h-4"></i></button>
         <div class="flex items-center gap-3 flex-wrap">
-          <span class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-gold grid place-items-center shrink-0">
-            <i data-lucide="clipboard-list" class="w-6 h-6 text-white"></i>
-          </span>
+          <span class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-gold grid place-items-center shrink-0"><i data-lucide="clipboard-list" class="w-6 h-6 text-white"></i></span>
           <div class="min-w-0">
             <h3 class="font-display text-2xl font-bold text-white leading-tight">Trial Bookings</h3>
-            <p class="text-sm text-neutral-400 mt-1">
-              <span id="bookingsCount">—</span> bookings ·
-              <span id="bookingsPending" class="text-gold font-semibold">—</span> pending ·
-              Last fetched <span id="bookingsTime">—</span>
-            </p>
+            <p class="text-sm text-neutral-400 mt-1"><span id="bookingsCount">—</span> total · <span id="bookingsPending" class="text-gold font-semibold">—</span> pending · <span id="bookingsTime">—</span></p>
           </div>
         </div>
-
-        <!-- Actions -->
         <div class="mt-5 flex flex-wrap items-center gap-2">
-          <button id="bookingsRefreshBtn" class="btn btn-primary btn-sm">
-            <i data-lucide="refresh-cw"></i><span>Refresh</span>
-          </button>
-          <button id="bookingsExportBtn" class="btn btn-ghost btn-sm">
-            <i data-lucide="download"></i><span>Export CSV</span>
-          </button>
-          <div class="ml-auto flex items-center gap-2">
+          <button id="bookingsRefreshBtn" class="btn btn-primary btn-sm"><i data-lucide="refresh-cw"></i><span>Refresh</span></button>
+          <button id="bookingsExportBtn" class="btn btn-ghost btn-sm"><i data-lucide="download"></i><span>Export CSV</span></button>
+          <div class="ml-auto">
             <select id="bookingsFilter" class="status-select" style="padding:6px 12px;font-size:12px;">
               <option value="all">All statuses</option>
               <option value="pending">Pending only</option>
@@ -752,47 +640,26 @@
           </div>
         </div>
       </div>
-
-      <!-- Body -->
       <div class="bookings-scroll">
         <div id="bookingsLoading" class="bookings-empty">
           <div class="inline-block w-8 h-8 border-2 border-white/20 border-t-brand rounded-full animate-spin"></div>
           <p class="mt-3">Loading bookings…</p>
         </div>
-
         <div id="bookingsEmpty" class="bookings-empty hidden">
           <i data-lucide="inbox"></i>
           <p>No trial bookings yet.</p>
-          <p class="text-xs mt-1 text-neutral-600">When someone submits the trial form, their booking will appear here.</p>
         </div>
-
         <div id="bookingsError" class="bookings-empty hidden">
           <i data-lucide="alert-triangle" class="text-red-500"></i>
-          <p class="text-red-400" id="bookingsErrorMsg">Failed to load bookings.</p>
+          <p class="text-red-400" id="bookingsErrorMsg">Failed to load</p>
         </div>
-
         <table id="bookingsTable" class="bookings-table hidden">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Slot</th>
-              <th>Status</th>
-              <th class="hidden sm:table-cell">Source</th>
-              <th style="width:60px"></th>
-            </tr>
-          </thead>
+          <thead><tr><th>Date</th><th>Name</th><th>Phone</th><th>Slot</th><th>Status</th><th class="hidden sm:table-cell">Source</th><th style="width:60px"></th></tr></thead>
           <tbody id="bookingsTbody"></tbody>
         </table>
       </div>
-
-      <!-- Footer -->
       <div class="px-6 py-4 border-t border-white/10 flex items-center justify-between gap-3 bg-ink2">
-        <p class="text-xs text-neutral-500">
-          <i data-lucide="info" class="w-3 h-3 inline -mt-0.5 mr-1"></i>
-          Click on a phone number to open WhatsApp.
-        </p>
+        <p class="text-xs text-neutral-500"><i data-lucide="info" class="w-3 h-3 inline -mt-0.5 mr-1"></i>Click phone to open WhatsApp.</p>
         <button data-close-bookings class="btn btn-ghost btn-sm">Close</button>
       </div>
     </div>
@@ -806,7 +673,7 @@
     <div class="px-6 py-5 border-b border-white/10 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="w-9 h-9 rounded-xl bg-brand/20 border border-brand/40 grid place-items-center"><i data-lucide="layout-panel-top" class="w-4 h-4 text-brand"></i></span>
-        <div><h3 class="font-display text-lg font-semibold text-white leading-none">Manage sections</h3><p class="text-xs text-neutral-500 mt-1">Toggle visibility on the live page</p></div>
+        <div><h3 class="font-display text-lg font-semibold text-white leading-none">Manage sections</h3><p class="text-xs text-neutral-500 mt-1">Toggle visibility</p></div>
       </div>
       <button data-close-sections class="btn btn-icon"><i data-lucide="x" class="w-4 h-4"></i></button>
     </div>
@@ -818,7 +685,7 @@
   </aside>
 </div>
 
-<!-- ADMIN TOOLBAR (with new "View Bookings" button) -->
+<!-- ADMIN TOOLBAR -->
 <div id="adminWrap" class="admin-hidden">
   <div class="w-[264px] rounded-2xl overflow-hidden glass-dark shadow-2xl border border-white/10">
     <button id="adminToggle" class="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-brand to-gold/70">
@@ -837,24 +704,26 @@
         </label>
       </div>
 
+      <div id="syncStatus" class="hidden text-xs text-neutral-400 px-1 flex items-center gap-1">
+        <span class="sync-dot" id="syncDot"></span>
+        <span id="syncText">Synced with cloud</span>
+      </div>
+
       <div class="h-px bg-white/10"></div>
 
-      <!-- ═══ NEW: View Bookings button ═══ -->
       <button id="viewBookingsBtn" class="btn btn-secondary btn-block btn-sm relative">
-        <i data-lucide="clipboard-list"></i>
-        <span>View Trial Bookings</span>
+        <i data-lucide="clipboard-list"></i><span>View Trial Bookings</span>
         <span id="bookingsBadge" class="hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1.5 rounded-full bg-brand text-white text-[10px] font-bold grid place-items-center shadow-lg">0</span>
       </button>
 
-      <button id="saveBtn"      class="btn btn-primary btn-block btn-sm"><i data-lucide="save"></i><span>Save changes</span></button>
+      <button id="saveBtn"      class="btn btn-primary btn-block btn-sm"><i data-lucide="save"></i><span>Save &amp; Sync</span></button>
       <button id="manageBtn"    class="btn btn-ghost   btn-block btn-sm"><i data-lucide="layout-panel-top"></i><span>Manage sections</span></button>
-      <button id="resetBtn"     class="btn btn-ghost   btn-block btn-sm"><i data-lucide="rotate-ccw"></i><span>Reset default</span></button>
+      <button id="resetBtn"     class="btn btn-ghost   btn-block btn-sm"><i data-lucide="rotate-ccw"></i><span>Reset local cache</span></button>
 
       <div class="h-px bg-white/10"></div>
 
       <button id="hideAdminBtn" class="btn btn-ghost btn-block btn-sm"><i data-lucide="eye-off"></i><span>Hide panel</span></button>
       <button id="logoutBtn"    class="btn btn-ghost btn-block btn-sm"><i data-lucide="log-out"></i><span>Logout admin</span></button>
-      <p class="text-xs text-neutral-600 text-center">Changes are stored locally in this browser.</p>
     </div>
   </div>
 </div>
@@ -865,9 +734,8 @@
 (() => {
   'use strict';
 
-  /* ═══════════════ CONFIG ═══════════════ */
   const CONFIG = {
-    storage: { edits: 'fng_edits_v5', sections: 'fng_sections_v5', images: 'fng_images_v5', social: 'fng_social_v5' },
+    storage: { edits: 'fng_edits_v7', sections: 'fng_sections_v7', images: 'fng_images_v7', social: 'fng_social_v7' },
     limits: { maxImageBytes: 5 * 1024 * 1024, maxTextLen: 8000, maxUrlLen: 500, loginAttempts: 5, loginLockMs: 60 * 1000 },
     allowedImageTypes: new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']),
     sections: [
@@ -899,15 +767,15 @@
     ]
   };
 
-  /* ═══════════════ STATE ═══════════════ */
   const state = {
     editMode: false, socialEditMode: false, activeSocialSlot: null, adminUser: null,
     editableEls: [], scrollLocks: new Set(), loginAttempts: 0, loginLockedUntil: 0,
-    bookings: [],                    // cached bookings
-    bookingsLoaded: false
+    bookings: [], bookingsLoaded: false,
+    sectionsFromCloud: false,
+    socialFromCloud: false,
+    cloudCache: { edits: {}, images: {}, sections: {}, social: null }
   };
 
-  /* ═══════════════ HELPERS ═══════════════ */
   const $  = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const show = (el) => el?.classList.remove('hidden');
@@ -915,7 +783,7 @@
   const setLoading = (btn, on) => { if (btn) { btn.classList.toggle('btn-loading', !!on); btn.disabled = !!on; } };
   const escHtml = (s) => String(s ?? '').replace(/[&<>"']/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]));
 
-  /* ═══════════════ TOAST ═══════════════ */
+  /* ═══ TOAST ═══ */
   const toast = (() => {
     let timer = null;
     const base = 'fixed bottom-28 left-1/2 z-[140] px-5 py-3 rounded-xl text-sm font-semibold shadow-2xl pointer-events-none transition-all duration-300 max-w-[90vw] text-center ';
@@ -930,7 +798,7 @@
     };
   })();
 
-  /* ═══════════════ SCROLL LOCK ═══════════════ */
+  /* ═══ SCROLL LOCK ═══ */
   const overlayIds = ['#trialModal', '#socialModal', '#loginModal', '#mobileMenu', '#sectionDrawer', '#bookingsModal'];
   const anyOverlayOpen = () => overlayIds.some(id => { const el = $(id); return el && !el.classList.contains('hidden'); });
   const lockScroll = (reason) => { state.scrollLocks.add(reason || 'generic'); document.body.classList.add('no-scroll'); };
@@ -941,7 +809,7 @@
   const forceReleaseScroll = () => { state.scrollLocks.clear(); document.body.classList.remove('no-scroll'); };
   setInterval(() => { if (!anyOverlayOpen() && document.body.classList.contains('no-scroll')) forceReleaseScroll(); }, 400);
 
-  /* ═══════════════ VALIDATORS ═══════════════ */
+  /* ═══ VALIDATORS + SANITIZER ═══ */
   const safeURL = (url) => {
     if (!url || typeof url !== 'string') return false;
     const u = url.trim();
@@ -970,7 +838,6 @@
     resolve(ok ? { ok: true } : { ok: false, error: 'File content does not match an image' });
   });
 
-  /* ═══════════════ SANITIZER ═══════════════ */
   const sanitize = (() => {
     const TAGS = new Set(['B','I','U','STRONG','EM','SPAN','BR','P','DIV','A','UL','OL','LI']);
     const ATTRS = { A: ['href','target','rel'], SPAN: [], DIV: [], P: [] };
@@ -1000,36 +867,207 @@
     };
   })();
 
-  /* ═══════════════ STORAGE ═══════════════ */
   const store = {
     get(key, fb) { try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fb; } catch { return fb; } },
     set(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); return true; } catch { return false; } },
     remove(key) { try { localStorage.removeItem(key); } catch {} }
   };
 
-  /* ═══════════════ SUPABASE CLIENT ═══════════════ */
+  /* ═══ SUPABASE ═══ */
   const supa = (() => {
     let client = null;
     function init() {
-      if (!window.supabase || typeof window.supabase.createClient !== 'function') {
-        console.warn('[supabase] SDK not loaded'); return null;
-      }
-      if (!window.SUPABASE_URL || window.SUPABASE_URL === 'YOUR_SUPABASE_URL') {
-        console.warn('[supabase] URL not configured'); return null;
-      }
+      if (!window.supabase || typeof window.supabase.createClient !== 'function') { console.warn('[supabase] SDK missing'); return null; }
+      if (!window.SUPABASE_URL || window.SUPABASE_URL === 'YOUR_SUPABASE_URL') { console.warn('[supabase] URL missing'); return null; }
       try {
         client = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY, {
           auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'pkce', storageKey: 'fng_auth' }
         });
         window.supabaseClient = client;
-        console.log('[supabase] client ready');
+        console.log('[supabase] ready');
         return client;
       } catch (e) { console.error('[supabase] init failed:', e); return null; }
     }
     return { init, get client() { return client; } };
   })();
 
-  /* ═══════════════ TRIAL FORM → SUPABASE RPC ═══════════════ */
+  /* ═══════════════════════════════════════════════════════════
+     CONTENT SYNC — handles text, images, sections, social
+     Key patterns:
+       edit:k0          → text edit (type='text')
+       img:hero-bg      → image replacement (type='image')
+       section:hero     → section visibility 'true'/'false' (type='section')
+       social:main      → JSON array of social links (type='social')
+  ═══════════════════════════════════════════════════════════ */
+  const contentSync = (() => {
+    let channel = null;
+    let applyingRemote = false;
+
+    function setStatus(state_, text) {
+      const dot = $('#syncDot'), txt = $('#syncText');
+      if (!dot || !txt) return;
+      dot.className = 'sync-dot ' + (state_ === 'syncing' ? 'syncing' : state_ === 'error' ? 'error' : '');
+      txt.textContent = text;
+    }
+
+    async function fetchAll() {
+      const client = supa.client;
+      if (!client) throw new Error('Supabase not initialised');
+      const { data, error } = await client.from('site_content').select('key,content,type,updated_at');
+      if (error) throw error;
+      return data || [];
+    }
+
+    async function upsert(rows) {
+      const client = supa.client;
+      if (!client) throw new Error('Supabase not initialised');
+      const { data: sessionData } = await client.auth.getSession();
+      if (!sessionData?.session) throw new Error('Not authenticated');
+      const payload = rows.map(r => ({
+        key: String(r.key).slice(0, 200),
+        content: String(r.content || '').slice(0, 500000),
+        type: r.type
+      }));
+      const { error } = await client.from('site_content').upsert(payload, { onConflict: 'key' });
+      if (error) throw error;
+    }
+
+    /* Apply a single row from cloud */
+    function applyRow(row) {
+      if (!row || !row.key) return;
+      applyingRemote = true;
+      try {
+        if (row.type === 'image') {
+          const img = document.querySelector(`img[data-img-key="${row.key.replace(/^img:/,'')}"]`);
+          if (img && row.content && img.src !== row.content) {
+            img.src = row.content; img.dataset.replaced = '1';
+            state.cloudCache.images[row.key] = row.content;
+          }
+        } else if (row.type === 'text') {
+          const el = document.querySelector(`[data-edit-key="${row.key.replace(/^edit:/,'')}"]`);
+          if (el) { const clean = sanitize(row.content || ''); if (el.innerHTML !== clean) el.innerHTML = clean; }
+          state.cloudCache.edits[row.key] = row.content;
+        } else if (row.type === 'section') {
+          const id = row.key.replace(/^section:/,'');
+          const el = document.getElementById(id);
+          const visible = row.content === 'true';
+          if (el) el.style.display = visible ? '' : 'none';
+          state.cloudCache.sections[id] = visible;
+        } else if (row.type === 'social') {
+          try {
+            const arr = JSON.parse(row.content || '[]');
+            if (Array.isArray(arr)) {
+              state.cloudCache.social = arr;
+              store.set(CONFIG.storage.social, arr);
+              social.render();
+            }
+          } catch (e) { console.warn('[sync] social parse failed'); }
+        }
+      } finally {
+        applyingRemote = false;
+      }
+    }
+
+    function applyAll(rows) {
+      if (!Array.isArray(rows)) return;
+      applyingRemote = true;
+      try {
+        // Sort so social and sections applied after images/text
+        const order = { image: 0, text: 1, section: 2, social: 3 };
+        const sorted = [...rows].sort((a, b) => (order[a.type] ?? 99) - (order[b.type] ?? 99));
+        sorted.forEach(applyRow);
+        if (window.lucide) lucide.createIcons();
+      } finally { applyingRemote = false; }
+    }
+
+    async function loadFromCloud() {
+      try {
+        setStatus('syncing', 'Loading cloud content…');
+        const rows = await fetchAll();
+        applyAll(rows);
+        setStatus('idle', `Cloud loaded (${rows.length} items)`);
+        console.log('[sync] loaded', rows.length, 'rows');
+      } catch (e) {
+        console.warn('[sync] cloud load failed:', e);
+        setStatus('error', 'Offline — using cache');
+      }
+    }
+
+    /* Push specific type of data */
+    async function push(rows) {
+      if (!rows || !rows.length) return;
+      setStatus('syncing', `Pushing ${rows.length} items…`);
+      try {
+        await upsert(rows);
+        setStatus('idle', `Synced ${rows.length} items`);
+      } catch (e) {
+        setStatus('error', 'Sync failed');
+        throw e;
+      }
+    }
+
+    /* Push everything (called by Save & Sync button) */
+    async function pushAll() {
+      const rows = [];
+      // Text edits
+      state.editableEls.forEach(el => {
+        rows.push({ key: 'edit:' + el.dataset.editKey, content: sanitize(el.innerHTML), type: 'text' });
+      });
+      // Images
+      document.querySelectorAll('img[data-img-key]').forEach(img => {
+        if (img.dataset.replaced === '1' && img.src.startsWith('data:image/')) {
+          rows.push({ key: 'img:' + img.dataset.imgKey, content: img.src, type: 'image' });
+        }
+      });
+      // Sections
+      const secState = store.get(CONFIG.storage.sections, {});
+      CONFIG.sections.forEach(sec => {
+        rows.push({
+          key: 'section:' + sec.id,
+          content: secState[sec.id] === false ? 'false' : 'true',
+          type: 'section'
+        });
+      });
+      // Social
+      const socialData = store.get(CONFIG.storage.social, CONFIG.defaultSocial);
+      rows.push({ key: 'social:main', content: JSON.stringify(socialData), type: 'social' });
+
+      await push(rows);
+    }
+
+    /* Push single item */
+    async function pushOne(key, content, type) {
+      await push([{ key, content, type }]);
+    }
+
+    function subscribe() {
+      const client = supa.client;
+      if (!client) return;
+      unsubscribe();
+      try {
+        channel = client
+          .channel('site_content_rt')
+          .on('postgres_changes',
+            { event: '*', schema: 'public', table: 'site_content' },
+            (payload) => {
+              if (applyingRemote) return;
+              const row = payload.new || payload.old;
+              if (row) applyRow(row);
+            })
+          .subscribe();
+      } catch (e) { console.warn('[sync] subscribe failed:', e); }
+    }
+
+    function unsubscribe() {
+      const client = supa.client;
+      if (channel && client) { try { client.removeChannel(channel); } catch {} }
+      channel = null;
+    }
+
+    return { loadFromCloud, pushAll, pushOne, subscribe, unsubscribe, setStatus };
+  })();
+
+  /* ═══ TRIAL BACKEND ═══ */
   const trialBackend = {
     async submit({ name, phone, slot }) {
       const response = await fetch(window.SUPABASE_URL + '/rest/v1/rpc/submit_trial_booking', {
@@ -1045,317 +1083,166 @@
           p_slot:  String(slot).slice(0, 100)
         })
       });
-      if (!response.ok) {
-        const errText = await response.text();
-        throw new Error(`HTTP ${response.status}: ${errText.slice(0, 200)}`);
-      }
+      if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
       return await response.json();
     }
   };
 
-  /* ═══════════════════════════════════════════════════════════
-     BOOKINGS MODULE (NEW)
-     - Fetches from Supabase trial_bookings table using the
-       authenticated session token (RLS-compatible)
-     - Renders in a table
-     - Supports refresh, filter, CSV export, and status updates
-  ═══════════════════════════════════════════════════════════ */
+  /* ═══ BOOKINGS ═══ */
   const bookings = (() => {
     let bookingsModalRef = null;
-
     function fmtDate(iso) {
       if (!iso) return '—';
       try {
-        const d = new Date(iso);
-        const now = new Date();
-        const diffMs = now - d;
-        const diffMin = Math.floor(diffMs / 60000);
-        const diffHrs = Math.floor(diffMs / 3600000);
-        const diffDays = Math.floor(diffMs / 86400000);
-
+        const d = new Date(iso), now = new Date();
+        const diffMin = Math.floor((now - d) / 60000);
+        const diffHrs = Math.floor((now - d) / 3600000);
+        const diffDays = Math.floor((now - d) / 86400000);
         let relative;
         if (diffMin < 1) relative = 'just now';
-        else if (diffMin < 60) relative = `${diffMin}m ago`;
-        else if (diffHrs < 24) relative = `${diffHrs}h ago`;
-        else if (diffDays < 7) relative = `${diffDays}d ago`;
+        else if (diffMin < 60) relative = diffMin + 'm ago';
+        else if (diffHrs < 24) relative = diffHrs + 'h ago';
+        else if (diffDays < 7) relative = diffDays + 'd ago';
         else relative = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
-
-        const full = d.toLocaleString('en-IN', {
-          day: '2-digit', month: 'short', year: 'numeric',
-          hour: '2-digit', minute: '2-digit'
-        });
-
-        return `<span title="${escHtml(full)}">${escHtml(relative)}</span>`;
+        const full = d.toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        return '<span title="' + escHtml(full) + '">' + escHtml(relative) + '</span>';
       } catch { return '—'; }
     }
-
-    function statusBadge(status) {
-      const s = String(status || 'pending').toLowerCase();
-      const cls = 'status-' + s;
-      return `<span class="status-badge ${cls}">${escHtml(s)}</span>`;
-    }
-
     function whatsappLink(phone) {
-      const cleaned = String(phone || '').replace(/\D/g, '');
-      if (!cleaned) return '#';
-      return `https://wa.me/${cleaned}`;
+      const c = String(phone || '').replace(/\D/g, '');
+      return c ? `https://wa.me/${c}` : '#';
     }
-
-    /* ── Fetch bookings from Supabase ── */
     async function fetchAll() {
       const client = supa.client;
-      if (!client) throw new Error('Supabase client not initialised');
-
+      if (!client) throw new Error('Supabase not ready');
       const { data: sessionData } = await client.auth.getSession();
       const token = sessionData?.session?.access_token;
-      if (!token) throw new Error('Not authenticated. Please sign in again.');
-
-      const url = window.SUPABASE_URL +
-        '/rest/v1/trial_bookings?select=*&order=created_at.desc&limit=500';
-
-      const res = await fetch(url, {
-        headers: {
-          'apikey': window.SUPABASE_ANON_KEY,
-          'Authorization': 'Bearer ' + token,
-          'Accept': 'application/json'
-        }
-      });
-
-      if (!res.ok) {
-        const txt = await res.text();
-        throw new Error(`HTTP ${res.status}: ${txt.slice(0, 180)}`);
-      }
-
-      const data = await res.json();
-      return Array.isArray(data) ? data : [];
+      if (!token) throw new Error('Not authenticated');
+      const url = window.SUPABASE_URL + '/rest/v1/trial_bookings?select=*&order=created_at.desc&limit=500';
+      const res = await fetch(url, { headers: {
+        'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + token, 'Accept': 'application/json'
+      }});
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 180)}`);
+      return await res.json();
     }
-
-    /* ── Update booking status ── */
     async function updateStatus(id, newStatus) {
       const client = supa.client;
       if (!client) throw new Error('Supabase not ready');
       const { data: sessionData } = await client.auth.getSession();
       const token = sessionData?.session?.access_token;
       if (!token) throw new Error('Not authenticated');
-
       const url = window.SUPABASE_URL + '/rest/v1/trial_bookings?id=eq.' + encodeURIComponent(id);
       const res = await fetch(url, {
         method: 'PATCH',
         headers: {
-          'apikey': window.SUPABASE_ANON_KEY,
-          'Authorization': 'Bearer ' + token,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal'
+          'apikey': window.SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json', 'Prefer': 'return=minimal'
         },
         body: JSON.stringify({ status: newStatus })
       });
-      if (!res.ok) {
-        const txt = await res.text();
-        throw new Error(`HTTP ${res.status}: ${txt.slice(0, 180)}`);
-      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
     }
-
-    /* ── Render the table ── */
     function renderTable() {
-      const loading = $('#bookingsLoading');
-      const empty = $('#bookingsEmpty');
-      const error = $('#bookingsError');
-      const table = $('#bookingsTable');
-      const tbody = $('#bookingsTbody');
+      const loading = $('#bookingsLoading'), empty = $('#bookingsEmpty'), error = $('#bookingsError');
+      const table = $('#bookingsTable'), tbody = $('#bookingsTbody');
       const filter = $('#bookingsFilter')?.value || 'all';
-
       hide(loading); hide(empty); hide(error); hide(table);
-
       const all = state.bookings || [];
       const visible = filter === 'all' ? all : all.filter(b => (b.status || 'pending') === filter);
-
-      // Update header stats
-      const total = all.length;
       const pending = all.filter(b => (b.status || 'pending') === 'pending').length;
-      $('#bookingsCount').textContent = total;
+      $('#bookingsCount').textContent = all.length;
       $('#bookingsPending').textContent = pending;
       $('#bookingsTime').textContent = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-
-      // Update badge on admin toolbar
       const badge = $('#bookingsBadge');
       if (badge) {
         if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); }
         else hide(badge);
       }
-
       if (visible.length === 0) {
         if (all.length === 0) show(empty);
-        else {
-          tbody.innerHTML = '';
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td colspan="7" class="text-center text-neutral-500 py-8 text-sm">No bookings match this filter.</td>`;
-          tbody.appendChild(tr);
-          show(table);
-        }
+        else { tbody.innerHTML = '<tr><td colspan="7" class="text-center text-neutral-500 py-8 text-sm">No bookings match filter.</td></tr>'; show(table); }
         return;
       }
-
       tbody.innerHTML = visible.map(b => `
-        <tr data-booking-id="${escHtml(b.id)}">
+        <tr>
           <td class="whitespace-nowrap">${fmtDate(b.created_at)}</td>
           <td class="font-medium text-white">${escHtml(b.name || '—')}</td>
-          <td>
-            <a href="${whatsappLink(b.phone)}" target="_blank" rel="noopener noreferrer"
-               class="text-gold hover:text-brand transition-colors font-mono text-xs">
-              ${escHtml(b.phone || '—')}
-            </a>
-          </td>
+          <td><a href="${whatsappLink(b.phone)}" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-brand font-mono text-xs">${escHtml(b.phone || '—')}</a></td>
           <td class="text-neutral-400">${escHtml(b.slot || '—')}</td>
-          <td>
-            <select class="status-select" data-status-select="${escHtml(b.id)}">
-              <option value="pending"   ${(b.status||'pending')==='pending'   ? 'selected' : ''}>Pending</option>
-              <option value="contacted" ${(b.status||'')==='contacted' ? 'selected' : ''}>Contacted</option>
-              <option value="converted" ${(b.status||'')==='converted' ? 'selected' : ''}>Converted</option>
-              <option value="cancelled" ${(b.status||'')==='cancelled' ? 'selected' : ''}>Cancelled</option>
-            </select>
-          </td>
+          <td><select class="status-select" data-status-select="${escHtml(b.id)}">
+            <option value="pending"   ${(b.status||'pending')==='pending'   ? 'selected' : ''}>Pending</option>
+            <option value="contacted" ${(b.status||'')==='contacted' ? 'selected' : ''}>Contacted</option>
+            <option value="converted" ${(b.status||'')==='converted' ? 'selected' : ''}>Converted</option>
+            <option value="cancelled" ${(b.status||'')==='cancelled' ? 'selected' : ''}>Cancelled</option>
+          </select></td>
           <td class="hidden sm:table-cell text-neutral-500 text-xs">${escHtml(b.source || '—')}</td>
-          <td>
-            <a href="${whatsappLink(b.phone)}" target="_blank" rel="noopener noreferrer"
-               class="btn btn-icon" style="width:32px;height:32px;" title="Open WhatsApp">
-              <svg viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px;">
-                <path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.57-1.72A12.75 12.75 0 0 0 16 28.8C23.06 28.8 28.8 23.06 28.8 16S23.06 3.2 16.001 3.2zm0 23.2c-1.98 0-3.92-.53-5.62-1.54l-.4-.24-3.9 1.02 1.04-3.8-.26-.4A10.35 10.35 0 0 1 5.6 16c0-5.74 4.67-10.4 10.4-10.4S26.4 10.26 26.4 16 21.74 26.4 16 26.4z"/>
-              </svg>
-            </a>
-          </td>
-        </tr>
-      `).join('');
-
+          <td><a href="${whatsappLink(b.phone)}" target="_blank" rel="noopener noreferrer" class="btn btn-icon" style="width:32px;height:32px;" title="WhatsApp">
+            <svg viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px;"><path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.57-1.72A12.75 12.75 0 0 0 16 28.8C23.06 28.8 28.8 23.06 28.8 16S23.06 3.2 16.001 3.2z"/></svg>
+          </a></td>
+        </tr>`).join('');
       show(table);
-
-      // Wire status selects
       tbody.querySelectorAll('[data-status-select]').forEach(sel => {
         sel.addEventListener('change', async function () {
           const id = this.dataset.statusSelect;
           const newStatus = this.value;
-          const originalValue = (state.bookings.find(b => b.id === id)?.status) || 'pending';
+          const orig = (state.bookings.find(b => b.id === id)?.status) || 'pending';
           this.disabled = true;
-          try {
-            await updateStatus(id, newStatus);
-            const b = state.bookings.find(x => x.id === id);
-            if (b) b.status = newStatus;
-            toast(`Booking marked as ${newStatus}`);
-          } catch (e) {
-            console.error('[bookings] update failed:', e);
-            toast('Could not update status: ' + e.message.slice(0, 100), 'error');
-            this.value = originalValue;
-          } finally {
-            this.disabled = false;
-          }
+          try { await updateStatus(id, newStatus); const b = state.bookings.find(x => x.id === id); if (b) b.status = newStatus; toast('Marked ' + newStatus); }
+          catch (e) { toast('Update failed', 'error'); this.value = orig; }
+          finally { this.disabled = false; }
         });
       });
     }
-
-    /* ── Load bookings ── */
     async function load() {
-      const loading = $('#bookingsLoading');
-      const error = $('#bookingsError');
-      const errorMsg = $('#bookingsErrorMsg');
-      const table = $('#bookingsTable');
-
-      hide(error); hide(table);
-      if (loading) show(loading);
-
+      const loading = $('#bookingsLoading'), error = $('#bookingsError'), errorMsg = $('#bookingsErrorMsg'), table = $('#bookingsTable');
+      hide(error); hide(table); if (loading) show(loading);
       try {
         const data = await fetchAll();
-        state.bookings = data;
-        state.bookingsLoaded = true;
+        state.bookings = data; state.bookingsLoaded = true;
         renderTable();
-        // Update badge even if modal not visible
         const pending = data.filter(b => (b.status || 'pending') === 'pending').length;
         const badge = $('#bookingsBadge');
-        if (badge) {
-          if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); }
-          else hide(badge);
-        }
+        if (badge) { if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); } else hide(badge); }
       } catch (e) {
-        console.error('[bookings] load failed:', e);
         hide(loading); hide(table);
-        if (errorMsg) errorMsg.textContent = 'Failed to load: ' + (e.message || 'Unknown error');
+        if (errorMsg) errorMsg.textContent = 'Failed: ' + e.message.slice(0, 120);
         show(error);
-        toast('Could not load bookings', 'error');
       }
     }
-
-    /* ── CSV export ── */
     function exportCSV() {
       const all = state.bookings || [];
-      if (!all.length) { toast('No bookings to export', 'info'); return; }
-      const headers = ['Date', 'Name', 'Phone', 'Slot', 'Status', 'Source', 'Notes'];
-      const rows = all.map(b => [
-        new Date(b.created_at || '').toLocaleString('en-IN'),
-        b.name || '',
-        b.phone || '',
-        b.slot || '',
-        b.status || 'pending',
-        b.source || '',
-        b.notes || ''
-      ]);
-      const csv = [headers, ...rows]
-        .map(r => r.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
-        .join('\n');
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `trial-bookings-${new Date().toISOString().slice(0, 10)}.csv`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      if (!all.length) { toast('No bookings', 'info'); return; }
+      const headers = ['Date','Name','Phone','Slot','Status','Source'];
+      const rows = all.map(b => [new Date(b.created_at || '').toLocaleString('en-IN'), b.name||'', b.phone||'', b.slot||'', b.status||'pending', b.source||'']);
+      const csv = [headers, ...rows].map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'trial-bookings-' + new Date().toISOString().slice(0, 10) + '.csv';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
       toast('CSV downloaded');
     }
-
-    /* ── Init ── */
     function bind() {
-      bookingsModalRef = modal.make({
-        rootId: 'bookingsModal',
-        panelId: 'bookingsPanel',
-        closeSel: '[data-close-bookings]',
-        lockReason: 'bookings'
-      });
-
-      $('#viewBookingsBtn')?.addEventListener('click', async () => {
-        bookingsModalRef?.open();
-        await load();
-      });
-
+      bookingsModalRef = modal.make({ rootId: 'bookingsModal', panelId: 'bookingsPanel', closeSel: '[data-close-bookings]', lockReason: 'bookings' });
+      $('#viewBookingsBtn')?.addEventListener('click', async () => { bookingsModalRef?.open(); await load(); });
       $('#bookingsRefreshBtn')?.addEventListener('click', load);
       $('#bookingsExportBtn')?.addEventListener('click', exportCSV);
       $('#bookingsFilter')?.addEventListener('change', renderTable);
     }
-
-    /* ── Called when admin unlocks ── */
     async function onAdminUnlock() {
-      // Fetch count in background so the badge shows even before opening modal
       try {
         const data = await fetchAll();
-        state.bookings = data;
-        state.bookingsLoaded = true;
+        state.bookings = data; state.bookingsLoaded = true;
         const pending = data.filter(b => (b.status || 'pending') === 'pending').length;
         const badge = $('#bookingsBadge');
-        if (badge) {
-          if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); }
-          else hide(badge);
-        }
-      } catch (e) {
-        console.warn('[bookings] background fetch failed:', e.message);
-      }
+        if (badge) { if (pending > 0) { badge.textContent = pending > 99 ? '99+' : pending; show(badge); } else hide(badge); }
+      } catch (e) { console.warn('[bookings] background failed:', e.message); }
     }
-
-    function clearOnLogout() {
-      state.bookings = [];
-      state.bookingsLoaded = false;
-      hide($('#bookingsBadge'));
-    }
-
+    function clearOnLogout() { state.bookings = []; state.bookingsLoaded = false; hide($('#bookingsBadge')); }
     return { bind, load, onAdminUnlock, clearOnLogout, renderTable };
   })();
 
-  /* ═══════════════ EDITABLE ═══════════════ */
+  /* ═══ EDITABLE ═══ */
   const editable = (() => {
     const SKIP = new Set(['SCRIPT','STYLE','SVG','PATH','CIRCLE','RECT','LINE','POLYLINE','POLYGON','G','INPUT','TEXTAREA','SELECT','OPTION','IFRAME','IMG','BR','HR','CANVAS','VIDEO','SOURCE','AUDIO','NOSCRIPT','BUTTON']);
     function collect() {
@@ -1394,13 +1281,14 @@
         else { el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck'); if (document.activeElement === el) el.blur(); }
       });
       const toggle = $('#editToggle'); if (toggle) toggle.checked = state.editMode;
+      const syncStatus = $('#syncStatus'); if (syncStatus) syncStatus.classList.toggle('hidden', !state.editMode);
       if (state.editMode) forceReleaseScroll();
       if (!silent) toast(state.editMode ? 'Edit mode ON' : 'Edit mode OFF', state.editMode ? 'warn' : 'info');
     }
     return { collect, save, restore, applyMode };
   })();
 
-  /* ═══════════════ IMAGES ═══════════════ */
+  /* ═══ IMAGES ═══ */
   const images = (() => {
     function pick(imgEl) {
       const input = document.createElement('input');
@@ -1414,11 +1302,17 @@
         if (!file) return;
         const check = await validImage(file);
         if (!check.ok) { toast(check.error, 'error'); return; }
-        process(file, dataUrl => {
+        process(file, async dataUrl => {
           imgEl.src = dataUrl;
           imgEl.dataset.replaced = '1';
           save();
-          toast('Image replaced & saved');
+          toast('Image replaced — syncing…');
+          try {
+            await contentSync.pushOne('img:' + imgEl.dataset.imgKey, dataUrl, 'image');
+            toast('Image synced to cloud');
+          } catch (e) {
+            toast('Cloud sync failed — saved locally', 'error');
+          }
         });
       }, { once: true });
       input.click();
@@ -1449,7 +1343,7 @@
       $$('img[data-img-key]').forEach(img => {
         if (img.dataset.replaced === '1' && img.src.startsWith('data:image/')) map[img.dataset.imgKey] = img.src;
       });
-      if (!store.set(CONFIG.storage.images, map)) toast('Storage full — image too large', 'error');
+      if (!store.set(CONFIG.storage.images, map)) toast('Storage full', 'error');
     }
     function restore() {
       const map = store.get(CONFIG.storage.images, null);
@@ -1462,7 +1356,7 @@
     return { pick, save, restore };
   })();
 
-  /* ═══════════════ SECTIONS ═══════════════ */
+  /* ═══ SECTIONS (with cloud sync) ═══ */
   const sections = (() => {
     function apply() {
       const st = store.get(CONFIG.storage.sections, {});
@@ -1481,7 +1375,7 @@
       CONFIG.sections.forEach(sec => {
         const visible = st[sec.id] !== false;
         const row = document.createElement('div');
-        row.className = `flex items-center justify-between gap-3 px-3.5 py-3 rounded-xl border transition-all ${visible ? 'bg-white/5 border-white/10' : 'bg-black/40 border-white/5 opacity-60'}`;
+        row.className = 'flex items-center justify-between gap-3 px-3.5 py-3 rounded-xl border transition-all ' + (visible ? 'bg-white/5 border-white/10' : 'bg-black/40 border-white/5 opacity-60');
         row.innerHTML = `
           <div class="flex items-center gap-3 min-w-0">
             <span class="w-8 h-8 rounded-lg grid place-items-center shrink-0 ${visible ? 'bg-brand/20 border border-brand/40 text-brand' : 'bg-white/5 border border-white/10 text-neutral-500'}">
@@ -1498,7 +1392,7 @@
       });
       if (window.lucide) lucide.createIcons();
       $$('#sectionList input[data-sec-toggle]').forEach(input => {
-        input.addEventListener('change', () => {
+        input.addEventListener('change', async () => {
           const id = input.dataset.secToggle;
           const st2 = store.get(CONFIG.storage.sections, {});
           st2[id] = input.checked;
@@ -1508,6 +1402,12 @@
           if (!input.checked && el) $$('.reveal', el).forEach(r => r.classList.add('in'));
           syncUI();
           toast(`${input.checked ? 'Shown' : 'Hidden'}: ${id}`, input.checked ? 'warn' : 'info');
+          /* Push to cloud */
+          try {
+            await contentSync.pushOne('section:' + id, input.checked ? 'true' : 'false', 'section');
+          } catch (e) {
+            console.warn('[sections] cloud push failed:', e.message);
+          }
         });
       });
     }
@@ -1523,11 +1423,15 @@
       CONFIG.sections.forEach(sec => { const el = document.getElementById(sec.id); if (el) el.style.display = ''; });
       buildList();
       toast('All sections visible');
+      /* Push to cloud */
+      CONFIG.sections.forEach(async sec => {
+        try { await contentSync.pushOne('section:' + sec.id, 'true', 'section'); } catch {}
+      });
     }
     return { apply, buildList, showAll };
   })();
 
-  /* ═══════════════ CALCULATOR ═══════════════ */
+  /* ═══ CALCULATOR ═══ */
   const calculator = (() => {
     const el = (id) => document.getElementById(id);
     function animateNumber(target, value) {
@@ -1543,18 +1447,11 @@
       })(t0);
     }
     function calculate() {
-      const w = parseFloat(el('cWeight').value);
-      const h = parseFloat(el('cHeight').value);
-      const a = parseFloat(el('cAge').value);
-      const g = el('cGender').value;
-      const act = parseFloat(el('cActivity').value);
-      if (!w || !h || !a || w <= 0 || h <= 0 || a <= 0 || w > 500 || h > 300 || a > 120) {
-        toast('Please enter valid weight, height and age', 'error'); return;
-      }
+      const w = parseFloat(el('cWeight').value), h = parseFloat(el('cHeight').value), a = parseFloat(el('cAge').value);
+      const g = el('cGender').value, act = parseFloat(el('cActivity').value);
+      if (!w || !h || !a || w <= 0 || h <= 0 || a <= 0 || w > 500 || h > 300 || a > 120) { toast('Please enter valid values', 'error'); return; }
       let bmr = (10 * w) + (6.25 * h) - (5 * a) + (g === 'male' ? 5 : -161);
-      const maint = bmr * act;
-      const cut = Math.max(1000, maint - 500);
-      const bulk = maint + 300;
+      const maint = bmr * act, cut = Math.max(1000, maint - 500), bulk = maint + 300;
       const max = Math.max(bmr, maint, cut, bulk, 1);
       animateNumber(el('rBmr'), bmr); animateNumber(el('rMain'), maint);
       animateNumber(el('rMain2'), maint); animateNumber(el('rCut'), cut); animateNumber(el('rBulk'), bulk);
@@ -1568,19 +1465,16 @@
       el('cGender').value = 'male'; el('cActivity').value = '1.55';
       ['rBmr','rMain','rMain2','rCut','rBulk'].forEach(id => { const t = el(id); if (t) t.textContent = '—'; });
       ['barBmr','barMain','barCut','barBulk'].forEach(id => { const b = el(id); if (b) b.style.width = '0%'; });
-      toast('Calculator reset', 'info');
     }
     function bind() {
       el('calcBtn')?.addEventListener('click', calculate);
       el('calcReset')?.addEventListener('click', reset);
-      ['cWeight','cHeight','cAge'].forEach(id => el(id)?.addEventListener('keydown', e => {
-        if (e.key === 'Enter') { e.preventDefault(); calculate(); }
-      }));
+      ['cWeight','cHeight','cAge'].forEach(id => el(id)?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); calculate(); } }));
     }
     return { bind };
   })();
 
-  /* ═══════════════ MODAL SYSTEM ═══════════════ */
+  /* ═══ MODAL SYSTEM ═══ */
   const modal = (() => {
     function make({ rootId, panelId, closeSel, lockReason }) {
       const root = document.getElementById(rootId);
@@ -1592,8 +1486,7 @@
         lockScroll(lockReason);
       }
       function close() {
-        panel.classList.add('scale-95', 'opacity-0');
-        panel.classList.remove('scale-100', 'opacity-100');
+        panel.classList.add('scale-95', 'opacity-0'); panel.classList.remove('scale-100', 'opacity-100');
         setTimeout(() => hide(root), 260);
         releaseScroll(lockReason);
       }
@@ -1604,7 +1497,7 @@
     return { make };
   })();
 
-  /* ═══════════════ NAVIGATION ═══════════════ */
+  /* ═══ NAVIGATION ═══ */
   const nav = (() => {
     function buildMobileList() {
       const ul = document.getElementById('mobileNavList'); if (!ul) return;
@@ -1643,15 +1536,14 @@
       });
     }
     function initMobileMenu() {
-      const drawer = document.getElementById('mobileMenu');
-      const panel = document.getElementById('mobileMenuPanel');
-      const btn = document.getElementById('mobileMenuBtn');
+      const drawer = document.getElementById('mobileMenu'), panel = document.getElementById('mobileMenuPanel'), btn = document.getElementById('mobileMenuBtn');
       if (!drawer || !panel || !btn) return;
       const open = () => {
         show(drawer);
         requestAnimationFrame(() => { panel.classList.remove('translate-x-full'); panel.classList.add('translate-x-0'); });
         btn.setAttribute('aria-expanded', 'true');
         lockScroll('mobileMenu');
+        if (window.lucide) lucide.createIcons();
       };
       const close = () => {
         panel.classList.add('translate-x-full'); panel.classList.remove('translate-x-0');
@@ -1668,7 +1560,7 @@
     return { buildMobileList, initSmoothScroll, initMobileMenu };
   })();
 
-  /* ═══════════════ REVEAL ═══════════════ */
+  /* ═══ REVEAL ═══ */
   const reveal = (() => {
     function bind() {
       const items = $$('.reveal');
@@ -1686,7 +1578,7 @@
     return { bind };
   })();
 
-  /* ═══════════════ STATIC CONTENT ═══════════════ */
+  /* ═══ STATIC CONTENT ═══ */
   const staticContent = (() => {
     const features = [
       { title: 'Imported equipment',  icon: 'dumbbell',   accent: 'brand', desc: 'Hammer Strength, Life Fitness and Rogue-grade free weights — maintained daily, never broken.' },
@@ -1714,56 +1606,29 @@
       { key: 'gal-7', img: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80' },
       { key: 'gal-8', img: 'https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=800&q=80' }
     ];
-
     function render() {
       const fg = document.getElementById('featuresGrid');
       if (fg) fg.innerHTML = features.map(f => {
         const hover = f.accent === 'brand' ? 'hover:border-brand/60 hover:shadow-[0_0_25px_rgba(220,38,38,.4)]' : 'hover:border-gold/60 hover:shadow-[0_0_25px_rgba(245,158,11,.35)]';
         const iconCls = f.accent === 'brand' ? 'bg-brand/15 border-brand/30 text-brand' : 'bg-gold/15 border-gold/30 text-gold';
-        return `
-          <article class="reveal glass rounded-2xl p-6 card-lift ${hover}">
-            <div class="w-12 h-12 rounded-xl border grid place-items-center ${iconCls}">
-              <i data-lucide="${f.icon}" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-display text-lg font-semibold text-white mt-5">${f.title}</h3>
-            <p class="text-sm text-neutral-400 mt-2.5 leading-relaxed">${f.desc}</p>
-          </article>`;
+        return '<article class="reveal glass rounded-2xl p-6 card-lift ' + hover + '"><div class="w-12 h-12 rounded-xl border grid place-items-center ' + iconCls + '"><i data-lucide="' + f.icon + '" class="w-6 h-6"></i></div><h3 class="font-display text-lg font-semibold text-white mt-5">' + f.title + '</h3><p class="text-sm text-neutral-400 mt-2.5 leading-relaxed">' + f.desc + '</p></article>';
       }).join('');
-
       const fac = document.getElementById('facilitiesGrid');
       if (fac) fac.innerHTML = facilities.map(f => {
         const hover = f.accent === 'brand' ? 'hover:border-brand/60 hover:shadow-[0_0_28px_rgba(220,38,38,.4)]' : 'hover:border-gold/60 hover:shadow-[0_0_28px_rgba(245,158,11,.35)]';
         const iconCls = f.accent === 'brand' ? 'bg-brand/20 border-brand/40 text-brand' : 'bg-gold/20 border-gold/40 text-gold';
-        return `
-          <article class="reveal group relative rounded-2xl overflow-hidden border border-white/10 card-lift ${hover}">
-            <div class="img-slot relative h-52 overflow-hidden">
-              <img data-img-key="${f.key}" src="${f.img}" alt="${f.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
-            </div>
-            <div class="p-6 -mt-12 relative">
-              <div class="w-11 h-11 rounded-xl border grid place-items-center backdrop-blur ${iconCls}">
-                <i data-lucide="${f.icon}" class="w-5 h-5"></i>
-              </div>
-              <h3 class="font-display text-lg font-semibold text-white mt-4">${f.title}</h3>
-              <p class="text-sm text-neutral-400 mt-2">${f.desc}</p>
-            </div>
-          </article>`;
+        return '<article class="reveal group relative rounded-2xl overflow-hidden border border-white/10 card-lift ' + hover + '"><div class="img-slot relative h-52 overflow-hidden"><img data-img-key="' + f.key + '" src="' + f.img + '" alt="' + f.title + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /><div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div></div><div class="p-6 -mt-12 relative"><div class="w-11 h-11 rounded-xl border grid place-items-center backdrop-blur ' + iconCls + '"><i data-lucide="' + f.icon + '" class="w-5 h-5"></i></div><h3 class="font-display text-lg font-semibold text-white mt-4">' + f.title + '</h3><p class="text-sm text-neutral-400 mt-2">' + f.desc + '</p></div></article>';
       }).join('');
-
       const gg = document.getElementById('galleryGrid');
-      if (gg) gg.innerHTML = gallery.map((g, i) => `
-        <div class="reveal img-slot relative ${g.span || ''} rounded-2xl overflow-hidden group border border-white/10 hover:border-brand/60 transition-all">
-          <img data-img-key="${g.key}" src="${g.img}" alt="Gallery photo ${i + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-        </div>`).join('');
-
+      if (gg) gg.innerHTML = gallery.map((g, i) => '<div class="reveal img-slot relative ' + (g.span || '') + ' rounded-2xl overflow-hidden group border border-white/10 hover:border-brand/60 transition-all"><img data-img-key="' + g.key + '" src="' + g.img + '" alt="Gallery photo ' + (i + 1) + '" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" /></div>').join('');
       if (window.lucide) lucide.createIcons();
     }
     return { render };
   })();
 
-  /* ═══════════════ SOCIAL ═══════════════ */
+  /* ═══ SOCIAL ═══ */
   const social = (() => {
-    const S = (inner, filled) => `<svg viewBox="0 0 24 24" ${filled ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"'}>${inner}</svg>`;
+    const S = (inner, filled) => '<svg viewBox="0 0 24 24" ' + (filled ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"') + '>' + inner + '</svg>';
     const ICONS = {
       instagram: S('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>'),
       facebook:  S('<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>'),
@@ -1813,6 +1678,12 @@
       return out;
     }
     const persist = (data) => store.set(CONFIG.storage.social, data);
+    async function pushToCloud() {
+      try {
+        const data = load();
+        await contentSync.pushOne('social:main', JSON.stringify(data), 'social');
+      } catch (e) { console.warn('[social] cloud push failed:', e.message); }
+    }
     function render() {
       const grid = document.getElementById('socialGrid'); if (!grid) return;
       const data = load();
@@ -1821,14 +1692,12 @@
       data.forEach((item, idx) => {
         if (!isEdit && !item.visible) return;
         const platform = detect(item.url);
-        const empty = !safeURL(item.url);
         const slot = document.createElement('div');
         slot.className = 'social-slot';
         const btnCls = ['social-btn'];
         if (isEdit && !item.visible) btnCls.push('is-hidden');
-        slot.innerHTML = `
-          <button type="button" class="${btnCls.join(' ')}" data-social-slot="${idx}" aria-label="${platform.label}">${ICONS[platform.key]}</button>
-          ${isEdit ? `<button type="button" class="social-vis-toggle ${item.visible ? '' : 'is-off'}" data-social-visibility="${idx}" aria-label="Toggle visibility">${item.visible ? ICONS.eye : ICONS.eyeOff}</button>` : ''}`;
+        slot.innerHTML = '<button type="button" class="' + btnCls.join(' ') + '" data-social-slot="' + idx + '" aria-label="' + platform.label + '">' + ICONS[platform.key] + '</button>' +
+          (isEdit ? '<button type="button" class="social-vis-toggle ' + (item.visible ? '' : 'is-off') + '" data-social-visibility="' + idx + '">' + (item.visible ? ICONS.eye : ICONS.eyeOff) + '</button>' : '');
         grid.appendChild(slot);
       });
       if (!grid.children.length) {
@@ -1849,13 +1718,14 @@
       if (safeURL(url)) window.open(url, '_blank', 'noopener,noreferrer');
       else toast('No valid link set', 'error');
     }
-    function onVisibilityToggle(e) {
+    async function onVisibilityToggle(e) {
       e.preventDefault(); e.stopPropagation();
       const idx = parseInt(this.dataset.socialVisibility, 10);
       const data = load();
       data[idx].visible = !data[idx].visible;
       persist(data); render();
       toast(data[idx].visible ? 'Box shown' : 'Box hidden', data[idx].visible ? 'warn' : 'info');
+      await pushToCloud();
     }
     let socialModalRef = null;
     function openEdit(idx) {
@@ -1864,18 +1734,10 @@
       const item = data[idx];
       $('#socialUrlInput').value = item.url || '';
       $('#socialVisibleToggle').checked = item.visible !== false;
-      updatePreview(item.url);
       socialModalRef?.open();
       setTimeout(() => { try { $('#socialUrlInput').focus(); $('#socialUrlInput').select(); } catch {} }, 250);
     }
-    function updatePreview(url) {
-      const p = detect(url);
-      const iconEl = $('#socialPreviewIcon');
-      const nameEl = $('#socialPreviewName');
-      if (iconEl) iconEl.innerHTML = ICONS[p.key];
-      if (nameEl) nameEl.textContent = p.label;
-    }
-    function saveEdit() {
+    async function saveEdit() {
       if (state.activeSocialSlot === null) return;
       const input = $('#socialUrlInput');
       const visTog = $('#socialVisibleToggle');
@@ -1887,7 +1749,8 @@
       if (visTog) data[state.activeSocialSlot].visible = visTog.checked;
       persist(data); render();
       socialModalRef?.close();
-      toast(url ? 'Link saved' : 'Link cleared');
+      toast(url ? 'Link saved — syncing…' : 'Link cleared');
+      await pushToCloud();
     }
     function toggleEditMode() {
       state.socialEditMode = !state.socialEditMode;
@@ -1903,29 +1766,27 @@
         if (!state.adminUser) { toast('Admin access required', 'error'); return; }
         toggleEditMode();
       });
-      $('#socialUrlInput')?.addEventListener('input', e => updatePreview(e.target.value));
       $('#socialUrlInput')?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); saveEdit(); } });
       $('#socialSaveBtn')?.addEventListener('click', saveEdit);
       $('#socialClearBtn')?.addEventListener('click', () => {
-        const inp = $('#socialUrlInput');
-        if (inp) { inp.value = ''; updatePreview(''); inp.focus(); }
+        const inp = $('#socialUrlInput'); if (inp) { inp.value = ''; inp.focus(); }
       });
     }
     return { bind, render, toggleEditMode };
   })();
 
-  /* ═══════════════ AUTH ═══════════════ */
+  /* ═══ AUTH ═══ */
   const auth = (() => {
     let onUnlock = () => {};
     let onLogout = () => {};
-
     function friendlyError(err) {
       const raw = (err && err.message) ? String(err.message) : '';
       const low = raw.toLowerCase();
       if (low.includes('invalid') && low.includes('credential')) return 'Invalid login credentials';
-      if (low.includes('email') && low.includes('not confirmed')) return 'Please confirm your email address first';
-      if (low.includes('rate') || low.includes('too many')) return 'Too many attempts. Please try again in a minute.';
+      if (low.includes('email') && low.includes('not confirmed')) return 'Please confirm your email first';
+      if (low.includes('rate') || low.includes('too many')) return 'Too many attempts. Try again in a minute.';
       if (low.includes('network') || low.includes('fetch')) return 'Network error. Check your connection.';
+      if (low.includes('invalid api key')) return 'Invalid API key — check your Supabase key';
       return raw || 'Sign in failed. Please try again.';
     }
     function throttleCheck() {
@@ -1936,39 +1797,26 @@
     function throttleFail() {
       state.loginAttempts++;
       if (state.loginAttempts >= CONFIG.limits.loginAttempts) {
-        state.loginLockedUntil = Date.now() + CONFIG.limits.loginLockMs;
-        state.loginAttempts = 0;
+        state.loginLockedUntil = Date.now() + CONFIG.limits.loginLockMs; state.loginAttempts = 0;
       }
     }
     const throttleReset = () => { state.loginAttempts = 0; state.loginLockedUntil = 0; };
-
     async function restoreSession() {
-      const client = supa.client;
-      if (!client) return;
+      const client = supa.client; if (!client) return;
       try {
         const { data } = await client.auth.getSession();
         const user = data?.session?.user;
         if (user) { state.adminUser = user; onUnlock({ silent: true }); }
       } catch (e) { console.warn('[auth] restore failed:', e); }
     }
-
-    function setCallbacks(handlers) {
-      onUnlock = handlers.onUnlock || onUnlock;
-      onLogout = handlers.onLogout || onLogout;
-    }
-
+    function setCallbacks(handlers) { onUnlock = handlers.onUnlock || onUnlock; onLogout = handlers.onLogout || onLogout; }
     function bindLoginForm(loginModal) {
-      const form = $('#loginForm');
-      const emailIn = $('#loginEmail');
-      const passIn = $('#loginPassword');
-      const errorEl = $('#loginError');
-      const submit = $('#loginSubmit');
+      const form = $('#loginForm'), emailIn = $('#loginEmail'), passIn = $('#loginPassword');
+      const errorEl = $('#loginError'), submit = $('#loginSubmit');
       if (!form) return;
-
       const showError = (msg) => { if (!errorEl) return; errorEl.textContent = String(msg).slice(0, 200); errorEl.classList.remove('hidden'); };
       const clearError = () => { if (!errorEl) return; errorEl.classList.add('hidden'); errorEl.textContent = ''; };
       [emailIn, passIn].forEach(el => el?.addEventListener('input', clearError));
-
       form.addEventListener('submit', async (e) => {
         e.preventDefault(); e.stopPropagation(); clearError();
         const email = (emailIn.value || '').trim().slice(0, 254);
@@ -1976,9 +1824,9 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email'); return; }
         if (password.length < 6) { showError('Password must be at least 6 characters'); return; }
         const throttle = throttleCheck();
-        if (throttle.locked) { showError(`Too many attempts. Try again in ${throttle.seconds}s`); return; }
+        if (throttle.locked) { showError('Too many attempts. Try again in ' + throttle.seconds + 's'); return; }
         const client = supa.client;
-        if (!client) { showError('Authentication service not configured'); return; }
+        if (!client) { showError('Authentication not configured'); return; }
         setLoading(submit, true);
         try {
           const { data, error } = await client.auth.signInWithPassword({ email, password });
@@ -1988,43 +1836,33 @@
           loginModal.close();
           onUnlock({ silent: false });
         } catch (err) {
-          throttleFail();
-          showError(friendlyError(err));
-          passIn.value = '';
-          try { passIn.focus(); } catch {}
-        } finally {
-          setLoading(submit, false);
-        }
+          throttleFail(); showError(friendlyError(err));
+          passIn.value = ''; try { passIn.focus(); } catch {}
+        } finally { setLoading(submit, false); }
       });
     }
-
     async function handleLogout() {
       const client = supa.client;
       if (client) { try { await client.auth.signOut(); } catch {} }
       state.adminUser = null;
       onLogout();
     }
-
     return { restoreSession, setCallbacks, bindLoginForm, handleLogout };
   })();
 
-  /* ═══════════════ ADMIN PANEL ═══════════════ */
+  /* ═══ ADMIN ═══ */
   const admin = (() => {
     let loginModal, sectionDrawer;
-
     function buildDrawer() {
       sectionDrawer = {
         open() {
-          const root = document.getElementById('sectionDrawer');
-          const panel = document.getElementById('sectionPanel');
-          sections.buildList();
-          show(root);
+          const root = document.getElementById('sectionDrawer'), panel = document.getElementById('sectionPanel');
+          sections.buildList(); show(root);
           requestAnimationFrame(() => { panel.classList.remove('translate-x-full'); panel.classList.add('translate-x-0'); });
           lockScroll('sectionDrawer');
         },
         close() {
-          const root = document.getElementById('sectionDrawer');
-          const panel = document.getElementById('sectionPanel');
+          const root = document.getElementById('sectionDrawer'), panel = document.getElementById('sectionPanel');
           panel.classList.add('translate-x-full'); panel.classList.remove('translate-x-0');
           setTimeout(() => hide(root), 300);
           releaseScroll('sectionDrawer');
@@ -2036,27 +1874,20 @@
         if (e.key === 'Escape' && !drawer.classList.contains('hidden')) sectionDrawer.close();
       });
     }
-
     function revealPanel(animate = true) {
       const wrap = $('#adminWrap'); if (!wrap) return;
       wrap.classList.remove('admin-hidden');
-      if (animate) {
-        wrap.classList.add('admin-enter');
-        void wrap.offsetWidth;
-        requestAnimationFrame(() => wrap.classList.remove('admin-enter'));
-      }
+      if (animate) { wrap.classList.add('admin-enter'); void wrap.offsetWidth; requestAnimationFrame(() => wrap.classList.remove('admin-enter')); }
     }
     function hidePanel() {
       const wrap = $('#adminWrap');
       if (!wrap || wrap.classList.contains('admin-hidden')) return;
       wrap.classList.add('admin-enter');
       setTimeout(() => { wrap.classList.add('admin-hidden'); wrap.classList.remove('admin-enter'); }, 280);
-      forceReleaseScroll();
-      toast('Admin panel hidden', 'info');
+      forceReleaseScroll(); toast('Admin panel hidden', 'info');
     }
     function updateUserBadge(user) {
-      const box = $('#adminUser');
-      const emailEl = $('#adminUserEmail');
+      const box = $('#adminUser'), emailEl = $('#adminUserEmail');
       if (!box || !emailEl) return;
       if (user?.email) { emailEl.textContent = user.email.slice(0, 60); box.classList.remove('hidden'); }
       else { emailEl.textContent = '—'; box.classList.add('hidden'); }
@@ -2070,9 +1901,9 @@
       show($('#socialEditToggle'));
       forceReleaseScroll();
       updateUserBadge(state.adminUser);
-      // ═══ NEW: fetch trial bookings in background ═══
       bookings.onAdminUnlock();
-      if (!silent) toast('Admin unlocked');
+      contentSync.subscribe();
+      if (!silent) toast('Admin unlocked — live sync active');
     }
     function onLogout() {
       editable.applyMode(false, true);
@@ -2082,8 +1913,8 @@
       hide($('#socialEditToggle'));
       hidePanel();
       updateUserBadge(null);
-      // ═══ NEW: clear cached bookings ═══
       bookings.clearOnLogout();
+      contentSync.unsubscribe();
       toast('Logged out', 'info');
     }
     function handleTrigger() {
@@ -2094,189 +1925,178 @@
         return;
       }
       if (!loginModal) return;
-      $('#loginEmail').value = '';
-      $('#loginPassword').value = '';
+      $('#loginEmail').value = ''; $('#loginPassword').value = '';
       $('#loginError').classList.add('hidden');
       loginModal.open();
       setTimeout(() => { try { $('#loginEmail').focus(); } catch {} }, 260);
+    }
+    function bindAdminTrigger() {
+      document.addEventListener('click', (e) => {
+        const dot = e.target.closest('#adminDotBtn');
+        if (!dot) return;
+        e.preventDefault(); e.stopPropagation();
+        handleTrigger();
+      }, true);
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a' || e.code === 'KeyA')) {
+          const tag = (e.target && e.target.tagName) || '';
+          if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+          e.preventDefault(); handleTrigger();
+        }
+      });
     }
     function bind() {
       loginModal = modal.make({ rootId: 'loginModal', panelId: 'loginPanel', closeSel: '[data-close-login]', lockReason: 'login' });
       buildDrawer();
       auth.setCallbacks({ onUnlock, onLogout });
       auth.bindLoginForm(loginModal);
-
-      const dot = $('#adminDotBtn');
-      if (dot) {
-        dot.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); handleTrigger(); });
-        dot.addEventListener('touchend', e => { e.preventDefault(); handleTrigger(); });
-      }
-      document.addEventListener('keydown', e => {
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a' || e.code === 'KeyA')) {
-          e.preventDefault(); handleTrigger();
-        }
-      });
+      bindAdminTrigger();
 
       $('#adminToggle')?.addEventListener('click', () => {
-        const body = $('#adminBody');
-        const chev = $('#adminChevron');
+        const body = $('#adminBody'), chev = $('#adminChevron');
         const collapsed = body.style.display === 'none';
         body.style.display = collapsed ? '' : 'none';
         if (chev) chev.style.transform = collapsed ? 'rotate(0deg)' : 'rotate(180deg)';
       });
       $('#editToggle')?.addEventListener('change', e => editable.applyMode(e.target.checked, false));
-      $('#saveBtn')?.addEventListener('click', () => {
-        const okE = editable.save();
+
+      $('#saveBtn')?.addEventListener('click', async () => {
+        const okLocal = editable.save();
         images.save();
-        if (okE) {
-          toast('All changes saved');
+        if (!okLocal) { toast('Could not save locally', 'error'); return; }
+        toast('Saving everything to cloud…');
+        try {
+          await contentSync.pushAll();
+          toast('All changes saved & synced to cloud');
           const btn = $('#saveBtn');
           btn.classList.add('ring-2', 'ring-emerald-400');
-          setTimeout(() => btn.classList.remove('ring-2', 'ring-emerald-400'), 800);
-        } else toast('Could not save changes', 'error');
+          setTimeout(() => btn.classList.remove('ring-2', 'ring-emerald-400'), 900);
+        } catch (e) {
+          console.error('[save] cloud push failed:', e);
+          toast('Saved locally, cloud sync failed', 'error');
+        }
       });
+
       $('#manageBtn')?.addEventListener('click', () => sectionDrawer.open());
       $('#showAllSections')?.addEventListener('click', () => sections.showAll());
       $('#resetBtn')?.addEventListener('click', () => {
-        if (!confirm('Reset all edits, images, sections and social links?')) return;
+        if (!confirm('Reset local cache? Cloud content stays safe.')) return;
         Object.values(CONFIG.storage).forEach(k => store.remove(k));
         location.reload();
       });
       $('#hideAdminBtn')?.addEventListener('click', hidePanel);
       $('#logoutBtn')?.addEventListener('click', () => {
-        if (!confirm('Logout from admin? All edit modes will be disabled.')) return;
+        if (!confirm('Logout from admin?')) return;
         auth.handleLogout();
       });
     }
     return { bind };
   })();
 
-  /* ═══════════════ TRIAL FORM ═══════════════ */
+  /* ═══ TRIAL FORM ═══ */
   const trial = (() => {
     let trialModal;
-
     function bind() {
       trialModal = modal.make({ rootId: 'trialModal', panelId: 'trialPanel', closeSel: '[data-close-trial]', lockReason: 'trial' });
-
       $$('[data-open-trial]').forEach(btn => {
         btn.addEventListener('click', e => {
           e.preventDefault();
-          if (state.editMode) { toast('Turn off Edit Mode to use this action', 'error'); return; }
+          if (state.editMode) { toast('Turn off Edit Mode', 'error'); return; }
           const slot = btn.dataset.slot || null;
           const slotSel = $('#trialForm select[name="slot"]');
           if (slotSel && slot) {
             const opt = Array.from(slotSel.options).find(o => o.text === slot);
             if (opt) slotSel.value = opt.value;
-            else {
-              const newOpt = document.createElement('option');
-              newOpt.textContent = slot; newOpt.value = slot;
-              slotSel.appendChild(newOpt); slotSel.value = slot;
-            }
+            else { const n = document.createElement('option'); n.textContent = slot; n.value = slot; slotSel.appendChild(n); slotSel.value = slot; }
           }
           trialModal.open();
           setTimeout(() => { try { $('#trialForm input[name="name"]').focus(); } catch {} }, 260);
         });
       });
-
       const form = $('#trialForm'); if (!form) return;
       const submitBtn = $('#trialSubmit');
-
       form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const nameEl = form.querySelector('input[name="name"]');
-        const phoneEl = form.querySelector('input[name="phone"]');
-        const slotEl = form.querySelector('select[name="slot"]');
-
-        const name  = (nameEl.value  || '').trim().slice(0, 80);
+        e.preventDefault(); e.stopPropagation();
+        const nameEl = form.querySelector('input[name="name"]'), phoneEl = form.querySelector('input[name="phone"]'), slotEl = form.querySelector('select[name="slot"]');
+        const name = (nameEl.value || '').trim().slice(0, 80);
         const phone = (phoneEl.value || '').trim().slice(0, 20);
-        const slot  = (slotEl.value  || '').trim().slice(0, 100);
-
+        const slot = (slotEl.value || '').trim().slice(0, 100);
         if (name.length < 2) { toast('Please enter a valid name', 'error'); nameEl.focus(); return; }
-        if (!/^[+\d][\d\s\-()]{8,20}$/.test(phone)) { toast('Please enter a valid phone number', 'error'); phoneEl.focus(); return; }
-        if (!slot) { toast('Please choose a preferred slot', 'error'); return; }
-
+        if (!/^[+\d][\d\s\-()]{8,20}$/.test(phone)) { toast('Please enter a valid phone', 'error'); phoneEl.focus(); return; }
+        if (!slot) { toast('Please choose a slot', 'error'); return; }
         setLoading(submitBtn, true);
         try {
-          const result = await trialBackend.submit({ name, phone, slot });
-          console.log('[trial] saved:', result);
-          toast(`Thanks ${name.split(' ')[0].replace(/[<>]/g, '')}! We'll call you shortly.`);
-          form.reset();
-          trialModal.close();
-        } catch (err) {
-          console.error('[trial] error:', err);
-          const raw = err?.message || JSON.stringify(err);
-          toast('Error: ' + raw.slice(0, 140), 'error');
-        } finally {
-          setLoading(submitBtn, false);
-        }
+          await trialBackend.submit({ name, phone, slot });
+          toast('Thanks ' + name.split(' ')[0].replace(/[<>]/g, '') + '! We\'ll call you shortly.');
+          form.reset(); trialModal.close();
+        } catch (err) { toast('Error: ' + (err?.message || '').slice(0, 120), 'error'); }
+        finally { setLoading(submitBtn, false); }
       });
     }
     return { bind };
   })();
 
-  /* ═══════════════ GLOBAL INTERACTIONS ═══════════════ */
+  /* ═══ GLOBAL IMAGE EDIT ═══ */
   function bindGlobalImageEdit() {
     document.addEventListener('click', e => {
       if (!state.editMode) return;
-      if (e.target.closest('#adminWrap') || e.target.closest('#sectionDrawer') ||
-          e.target.closest('#trialModal') || e.target.closest('#socialWrap') ||
-          e.target.closest('#socialModal') || e.target.closest('#adminDotBtn') ||
-          e.target.closest('#loginModal') || e.target.closest('#mobileMenu') ||
-          e.target.closest('#mobileMenuBtn') || e.target.closest('header') ||
-          e.target.closest('#bookingsModal') || e.target.closest('.whatsapp-btn')) return;
+      if (e.target.closest('#adminWrap') || e.target.closest('#sectionDrawer') || e.target.closest('#trialModal') ||
+          e.target.closest('#socialWrap') || e.target.closest('#socialModal') || e.target.closest('#adminDotBtn') ||
+          e.target.closest('#loginModal') || e.target.closest('#mobileMenu') || e.target.closest('#mobileMenuBtn') ||
+          e.target.closest('header') || e.target.closest('#bookingsModal') || e.target.closest('.whatsapp-btn')) return;
       const img = e.target.closest('img[data-img-key]');
       if (img) { e.preventDefault(); e.stopPropagation(); images.pick(img); return; }
-      const anchor = e.target.closest('a');
-      if (anchor) e.preventDefault();
+      const anchor = e.target.closest('a'); if (anchor) e.preventDefault();
     }, true);
   }
 
-  /* ═══════════════ WHATSAPP ═══════════════ */
+  /* ═══ WHATSAPP ═══ */
   function bindWhatsApp() {
-    const btn = document.getElementById('whatsappBtn');
-    if (!btn) return;
+    const btn = document.getElementById('whatsappBtn'); if (!btn) return;
     const number = (window.WHATSAPP_NUMBER || '').replace(/\D/g, '');
     const message = window.WHATSAPP_MESSAGE || '';
-    if (!number) { console.warn('[whatsapp] number not configured'); return; }
-    btn.href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    if (!number) return;
+    btn.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(message);
   }
 
-  /* ═══════════════ BOOTSTRAP ═══════════════ */
+  /* ═══ BOOTSTRAP ═══ */
   async function bootstrap() {
     if (window.lucide) lucide.createIcons();
     staticContent.render();
     editable.collect();
     editable.restore();
     images.restore();
-    if (window.lucide) lucide.createIcons();
     sections.apply();
+    social.render();
+    if (window.lucide) lucide.createIcons();
     nav.buildMobileList();
     nav.initMobileMenu();
     nav.initSmoothScroll();
     calculator.bind();
     social.bind();
     trial.bind();
-    bookings.bind();            // ═══ NEW ═══
+    bookings.bind();
     admin.bind();
     bindGlobalImageEdit();
     bindWhatsApp();
     reveal.bind();
 
     supa.init();
+
+    /* Load cloud content — overrides local cache with latest */
+    await contentSync.loadFromCloud();
+
+    /* Re-apply sections after cloud data */
+    sections.apply();
+    social.render();
+    if (window.lucide) lucide.createIcons();
+
     await auth.restoreSession();
 
     forceReleaseScroll();
 
     console.log('%cFitnation ready', 'color:#dc2626;font-weight:700;');
-    console.log('SUPABASE_URL:', window.SUPABASE_URL);
     console.log('Editable nodes:', state.editableEls.length);
-
-    window.addEventListener('beforeunload', e => {
-      if (!state.editMode) return;
-      e.preventDefault(); e.returnValue = '';
-    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootstrap);
